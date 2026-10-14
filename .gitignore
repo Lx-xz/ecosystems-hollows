@@ -1,0 +1,32 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# Pastas do jogo de teste (runClient, runServer, runGameTestServer)
+run/
+run-gametest/
+runs/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python (scripts em tools/)
+__pycache__/
+*.pyc
+
+# O wrapper do Gradle precisa ir para o repositório
+!gradle/wrapper/gradle-wrapper.jar

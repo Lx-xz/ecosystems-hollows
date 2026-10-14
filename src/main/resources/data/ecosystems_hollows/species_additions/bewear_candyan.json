@@ -1,0 +1,18 @@
+{
+  "target": "cobblemon:bewear",
+  "forms": [
+    {
+      "name": "Candyan",
+      "primaryType": "fairy",
+      "secondaryType": "fighting",
+      "aspects": [
+        "candyan"
+      ],
+      "labels": [
+        "candyan_form",
+        "ecosystems_hollows"
+      ],
+      "battleOnly": false
+    }
+  ]
+}

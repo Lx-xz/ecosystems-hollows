@@ -1,0 +1,99 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-candyan-stufful-red",
+      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_red",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "9-26",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-stufful-orange",
+      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_orange",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "9-26",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-stufful-yellow",
+      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_yellow",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "9-26",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-stufful-green",
+      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_green",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "9-26",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-stufful-blue",
+      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_blue",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "9-26",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-stufful-purple",
+      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_purple",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "9-26",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "species": "cobblemon:orthworm",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [
+        "candyan"
+      ],
+      "poser": "ecosystems_hollows:orthworm_candyan",
+      "model": "ecosystems_hollows:orthworm_candyan.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/orthworm/orthworm_candyan_gum.png"
+    }
+  ]
+}

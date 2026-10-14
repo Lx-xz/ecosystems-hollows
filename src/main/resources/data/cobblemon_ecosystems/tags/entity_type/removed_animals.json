@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "alexscaves:gummy_bear",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gum_worm",
+      "required": false
+    }
+  ]
+}

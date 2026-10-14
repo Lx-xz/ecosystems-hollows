@@ -1,0 +1,24 @@
+{
+  "target": "cobblemon:orthworm",
+  "forms": [
+    {
+      "name": "Candyan",
+      "primaryType": "fairy",
+      "secondaryType": "ground",
+      "aspects": [
+        "candyan"
+      ],
+      "labels": [
+        "candyan_form",
+        "ecosystems_hollows"
+      ],
+      "battleOnly": false,
+      "baseScale": 1.5,
+      "hitbox": {
+        "width": 1.95,
+        "height": 0.75,
+        "fixed": false
+      }
+    }
+  ]
+}

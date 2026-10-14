@@ -1,0 +1,68 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = project.mod_version
+group = 'com.luiz.ecosystemshollows'
+base { archivesName = project.archives_base_name }
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    maven { url = 'https://maven.impactdev.net/repository/development/' } // Cobblemon
+    maven { url = 'https://thedarkcolour.github.io/KotlinForForge/' }     // Kotlin for Forge (dependência do Cobblemon)
+    exclusiveContent {
+        forRepository { maven { url = 'https://api.modrinth.com/maven' } }
+        filter { includeGroup 'maven.modrinth' }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+    runs {
+        client { client() }
+        server { server() }
+        // Sobe o jogo sem janela e sem EULA, só para conferir se os mods carregam.
+        gameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = project.file('run-gametest')
+        }
+    }
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
+    }
+}
+
+dependencies {
+    implementation("com.cobblemon:neoforge:${project.cobblemon_version}") { transitive = false }
+    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:2.0.0'
+    runtimeOnly 'thedarkcolour:kotlinforforge-neoforge:5.12.0'
+
+    // Alex's Caves (port do Raguto) e Citadel. Ids exatos das versões no Modrinth:
+    runtimeOnly 'maven.modrinth:alexs-caves-unofficial-port:pC1MYhqR' // 2.0.10
+    runtimeOnly 'maven.modrinth:citadel-1.21.1-port:mIylVpkN'         // 2.7.6
+
+    // Mod base (Cobblemon Ecosystems): usa o jar compilado em ../base. Rode "gradlew build" lá antes.
+    runtimeOnly fileTree(dir: '../base/build/libs', include: 'cobblemon-ecosystems-*.jar')
+
+    // Performance no runClient (não vão dentro do jar do mod).
+    runtimeOnly 'maven.modrinth:sodium:uMOpc5uV'        // mc1.21.1-0.8.13-neoforge
+    runtimeOnly 'maven.modrinth:lithium:DDUrRVCA'       // mc1.21.1-0.15.4-neoforge
+    runtimeOnly 'maven.modrinth:ferrite-core:x7kQWVju'  // 7.0.3-neoforge
+    runtimeOnly 'maven.modrinth:modernfix:5HLHxQ2F'     // 5.27.24+mc1.21.1
+    runtimeOnly 'maven.modrinth:entityculling:8w8FfUPs' // 1.11.2
+}
+
+processResources {
+    def props = [mod_id: project.mod_id, mod_version: project.mod_version]
+    inputs.properties props
+    filesMatching('META-INF/neoforge.mods.toml') { expand props }
+}
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+// Apaga jars de versões antigas antes de gerar o novo.
+tasks.named('jar') {
+    doFirst { delete fileTree(destinationDirectory) { include "${project.archives_base_name}-*.jar" } }
+}

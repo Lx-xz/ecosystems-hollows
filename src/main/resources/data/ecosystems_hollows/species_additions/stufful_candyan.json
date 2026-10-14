@@ -1,0 +1,18 @@
+{
+  "target": "cobblemon:stufful",
+  "forms": [
+    {
+      "name": "Candyan",
+      "primaryType": "fairy",
+      "secondaryType": "normal",
+      "aspects": [
+        "candyan"
+      ],
+      "labels": [
+        "candyan_form",
+        "ecosystems_hollows"
+      ],
+      "battleOnly": false
+    }
+  ]
+}

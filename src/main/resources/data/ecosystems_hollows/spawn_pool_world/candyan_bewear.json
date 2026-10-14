@@ -1,0 +1,99 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-candyan-bewear-red",
+      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_red",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "27-45",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-bewear-orange",
+      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_orange",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "27-45",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-bewear-yellow",
+      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_yellow",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "27-45",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-bewear-green",
+      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_green",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "27-45",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-bewear-blue",
+      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_blue",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "27-45",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candyan-bewear-purple",
+      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_purple",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "27-45",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    }
+  ]
+}

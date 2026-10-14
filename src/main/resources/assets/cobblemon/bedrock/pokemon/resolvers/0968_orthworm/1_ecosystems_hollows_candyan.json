@@ -9,6 +9,13 @@
       "poser": "ecosystems_hollows:orthworm_candyan",
       "model": "ecosystems_hollows:orthworm_candyan.geo",
       "texture": "ecosystems_hollows:textures/pokemon/orthworm/orthworm_candyan_gum.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/orthworm/orthworm_candyan_gum_shiny.png"
     }
   ]
 }

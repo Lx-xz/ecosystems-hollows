@@ -12,7 +12,10 @@ with **regional forms** of their own, like Alolan and Galarian forms. Hostile mo
 ### ✅ Candy Cavity
 - **Candyan Stufful** (Fairy/Normal) and **Candyan Bewear** (Fairy/Fighting): translucent jelly bears in six colors,
   replacing the Gummy Bear
-- **Candyan Orthworm** (Fairy/Ground): a striped bubblegum worm with 10 tail segments, replacing the Gum Worm
+- **Candyan Orthworm** (Fairy/Ground): a striped bubblegum worm with 11 tail segments, replacing the Gum Worm; it
+  burrows into the soft candy blocks like it does into sand
+- **Candyan shinies**: the jelly bears turn to lighter neighbour shades (cyan, magenta, mint, peach, lemon, lilac) and
+  the Orthworm becomes a red, white and mint striped peppermint
 
 ### 🗺️ Planned
 - **Primordial Caves**: living fossil Pokémon instead of the dinosaurs
@@ -41,7 +44,10 @@ alguns com **formas regionais** próprias, como as de Alola e Galar. Mobs hostis
 ### ✅ Candy Cavity
 - **Stufful Candyan** (Fada/Normal) e **Bewear Candyan** (Fada/Lutador): ursos de gelatina translúcidos em seis cores,
   no lugar do Gummy Bear
-- **Orthworm Candyan** (Fada/Terra): uma minhoca de chiclete listrada com 10 segmentos no rabo, no lugar do Gum Worm
+- **Orthworm Candyan** (Fada/Terra): uma minhoca de chiclete listrada com 11 segmentos no rabo, no lugar do Gum Worm;
+  afunda nos blocos macios de doce como afunda na areia
+- **Candyan shiny**: os ursos de gelatina ganham tons vizinhos mais claros (ciano, magenta, menta, pêssego, limão,
+  lilás) e o Orthworm vira uma bala de hortelã listrada de vermelho, branco e menta
 
 ### 🗺️ Planejado
 - **Primordial Caves**: Pokémon fóssil vivos no lugar dos dinossauros

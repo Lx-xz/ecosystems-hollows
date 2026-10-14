@@ -92,7 +92,7 @@
         "NONE"
       ],
       "isBattle": false,
-      "condition": "!q.in_air && !q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.in_air && !q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "animations": [
         "q.look('head')",
         "q.bedrock('orthworm_candyan', 'ground_idle')"
@@ -106,7 +106,7 @@
         "STAND"
       ],
       "isBattle": true,
-      "condition": "!q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "animations": [
         "q.look('head')",
         "q.bedrock('orthworm_candyan', 'battle_idle')"
@@ -121,7 +121,7 @@
       ],
       "isBattle": false,
       "isTouchingWater": false,
-      "condition": "!q.in_air && !q.is_ridden && q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.in_air && !q.is_ridden && q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "animations": [
         "q.bedrock('orthworm_candyan', 'sand_idle')"
       ],
@@ -135,7 +135,7 @@
       ],
       "isBattle": false,
       "isTouchingWater": false,
-      "condition": "!q.in_air && !q.is_ridden && q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.in_air && !q.is_ridden && q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "animations": [
         "q.bedrock('orthworm_candyan', 'sand_swim')"
       ],
@@ -198,7 +198,7 @@
         "SWIM"
       ],
       "isTouchingWater": false,
-      "condition": "!q.in_air && !q.is_ridden && !q.is_sprinting && !q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.in_air && !q.is_ridden && !q.is_sprinting && !q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "animations": [
         "q.bedrock('orthworm_candyan', 'ground_walk')"
       ],
@@ -212,7 +212,7 @@
         "WALK"
       ],
       "isTouchingWater": false,
-      "condition": "!q.in_air && !q.is_ridden && q.is_sprinting && !q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.in_air && !q.is_ridden && q.is_sprinting && !q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "animations": [
         "q.bedrock('orthworm_candyan', 'ground_run')"
       ],
@@ -227,7 +227,7 @@
         "SLEEP"
       ],
       "isBattle": false,
-      "condition": "q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "namedAnimations": {
         "cry": "q.bedrock_stateful('dummy', 'cry')"
       },
@@ -240,7 +240,7 @@
         "SLEEP"
       ],
       "isBattle": false,
-      "condition": "!q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand')",
+      "condition": "!q.is_standing_on_blocks(2, 'minecraft:sand', 'minecraft:red_sand', 'alexscaves:block_of_frosting', 'alexscaves:block_of_vanilla_frosting', 'alexscaves:block_of_chocolate_frosting', 'alexscaves:block_of_chocolate', 'alexscaves:block_of_frosted_chocolate', 'alexscaves:cake_layer', 'alexscaves:cookie_block', 'alexscaves:vanilla_ice_cream', 'alexscaves:chocolate_ice_cream')",
       "namedAnimations": {
         "cry": "q.bedrock_stateful('dummy', 'cry')"
       },

@@ -30,11 +30,33 @@ GUMMY_COLORS = {
     "blue": (56, 128, 236),
     "purple": (156, 72, 216),
 }
+# Shiny: cada cor puxa para a vizinha mais clara (azul -> ciano, vermelho -> magenta, verde -> menta...).
+# Laranja e amarelo não têm uma vizinha óbvia: viram pêssego e limão.
+GUMMY_SHINY = {
+    "red": (236, 48, 168),      # magenta
+    "orange": (255, 146, 120),  # pêssego
+    "yellow": (214, 240, 72),   # limão
+    "green": (110, 236, 176),   # menta
+    "blue": (48, 214, 236),     # ciano
+    "purple": (206, 150, 250),  # lilás
+}
 # espécie: (pasta no Cobblemon, cores, translúcido?, cubos extras do rosto pelo UV)
 POKEMON = {
     "stufful": ("0759_stufful", GUMMY_COLORS, True, []),
     # O focinho do Bewear é um cubo dentro do osso "head", com UV em (0, 63).
     "bewear": ("0760_bewear", GUMMY_COLORS, True, [(0, 63)]),
+}
+
+# Cubos que encostam numa face do corpo translúcido: a face de trás deles fica no mesmo plano da face do corpo e,
+# vista através da gelatina, as duas brigam (listras piscando). A face de trás precisa entrar um pouco no corpo.
+# O Cobblemon só aceita UV de caixa, e mudar o tamanho do cubo para um valor quebrado desalinharia a textura.
+# Então o cubo cresce com "inflate" (a textura estica junto, sem desalinhar) e é empurrado para dentro na mesma
+# medida: a frente fica onde estava e só a face de trás entra no corpo.
+# Gera um modelo próprio "<espécie>_candyan" com a correção.
+# espécie: [(osso, UV do cubo, quanto a face de trás entra no corpo)]
+OVERLAP_FIXES = {
+    # Focinho do Bewear: a face de trás ficava em z = -8, igual à frente da cabeça.
+    "bewear": [("head", (0, 63), 0.25)],
 }
 
 # Pokémon de chiclete listrados, pintados osso por osso (veja bone_colors). O Orthworm tem modelo próprio
@@ -177,13 +199,29 @@ def main():
     preview_dir = Path(sys.argv[3]) if len(sys.argv) > 3 else None
     z = zipfile.ZipFile(jar)
     out_dir.mkdir(parents=True, exist_ok=True)
+    models_dir = out_dir.parents[1] / "bedrock/pokemon/models"
+    for species, fixes in OVERLAP_FIXES.items():
+        folder = POKEMON[species][0]
+        model = json.loads(z.read(f"assets/cobblemon/bedrock/pokemon/models/{folder}/{species}.geo.json"))
+        geo = model["minecraft:geometry"][0]
+        geo["description"]["identifier"] = f"geometry.{species}_candyan"
+        for bone_name, uv, depth in fixes:
+            bone = next(b for b in geo["bones"] if b["name"] == bone_name)
+            cube = next(c for c in bone["cubes"] if tuple(c.get("uv", ())) == uv)
+            # inflate cresce metade da medida para cada lado; o empurrão compensa o lado da frente.
+            cube["inflate"] = cube.get("inflate", 0) + depth / 2
+            cube["origin"][2] += depth / 2
+        models_dir.mkdir(parents=True, exist_ok=True)
+        (models_dir / f"{species}_candyan.geo.json").write_text(json.dumps(model, indent=2) + "\n", encoding="utf-8")
+
     for species, (folder, colors, translucent, extra_face_uvs) in POKEMON.items():
         texture = Image.open(BytesIO(z.read(f"assets/cobblemon/textures/pokemon/{folder}/{species}.png")))
         geo = json.loads(z.read(f"assets/cobblemon/bedrock/pokemon/models/{folder}/{species}.geo.json"))["minecraft:geometry"][0]
         regions = region_map(geo, texture.width, texture.height, [tuple(uv) for uv in extra_face_uvs])
         (out_dir / species).mkdir(exist_ok=True)
         variants = []
-        for name, color in colors.items():
+        shiny = {f"{name}_shiny": GUMMY_SHINY[name] for name in colors if colors is GUMMY_COLORS}
+        for name, color in {**colors, **shiny}.items():
             base, layer = candy(texture, color, translucent, regions)
             if layer is None:
                 base.save(out_dir / species / f"{species}_candyan_{name}.png")

@@ -30,7 +30,7 @@ pela marca (aspect) da região, como a de Alola. Atributos, golpes e habilidades
 |---|---|---|
 | Stufful | Fada/Normal, 6 cores de gelatina | Normal/Lutador |
 | Bewear | Fada/Lutador, 6 cores de gelatina | Normal/Lutador |
-| Orthworm | **Fada/Terra**, chiclete listrado (roxo, laranja, verde-água), **10 segmentos** e escala 1,5 (substitui o Gum Worm) | Aço |
+| Orthworm | **Fada/Terra**, chiclete listrado (roxo, laranja, verde-água), **11 segmentos** (ponta original no fim), escala 1,5, afunda nos blocos macios da Candy Cavity (substitui o Gum Worm) | Aço |
 
 ---
 
@@ -79,7 +79,9 @@ Deep One, Deep One Knight, Deep One Mage, Underzealot, Watcher, Forsaken, Licowi
 - [x] Gummy Bear removido
 - [x] Testado no jogo: transparência, cores e spawn funcionam
 - [x] Formas regionais de verdade: Stufful Fada/Normal, Bewear Fada/Lutador
-- [x] Orthworm Candyan no lugar do Gum Worm (Gum Worm removido): modelo próprio com 10 segmentos, gerado por `tools/orthworm_candyan.py`
+- [x] Orthworm Candyan no lugar do Gum Worm (Gum Worm removido): modelo próprio com 11 segmentos, gerado por `tools/orthworm_candyan.py`
+- [x] Shiny próprios: gomas em tons vizinhos (ciano, magenta, menta, pêssego, limão, lilás); Orthworm de bala de hortelã
+- [x] Bewear Candyan com modelo próprio: focinho levemente para dentro da cabeça (a face de trás piscava através da gelatina)
 - [ ] Testar: tipos na batalha, evolução Stufful → Bewear mantendo a forma e a cor
 - [ ] Golpes e habilidades próprios das formas Candyan
 - [ ] Nome "Candyan Stufful" na tela (hoje aparece só "Stufful")

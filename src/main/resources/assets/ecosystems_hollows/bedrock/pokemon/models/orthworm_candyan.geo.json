@@ -5,7 +5,7 @@
       "description": {
         "identifier": "geometry.orthworm_candyan",
         "texture_width": 128,
-        "texture_height": 384,
+        "texture_height": 448,
         "visible_bounds_width": 9,
         "visible_bounds_height": 2.5,
         "visible_bounds_offset": [
@@ -1698,76 +1698,6 @@
           ]
         },
         {
-          "name": "segment5",
-          "parent": "segment4",
-          "pivot": [
-            0,
-            4.5,
-            22.75
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4,
-                0.5,
-                22.75
-              ],
-              "size": [
-                8,
-                8,
-                9
-              ],
-              "inflate": 0.1,
-              "uv": [
-                56,
-                41
-              ]
-            }
-          ]
-        },
-        {
-          "name": "locator_tail",
-          "parent": "segment5",
-          "pivot": [
-            0,
-            4.5,
-            27.5
-          ],
-          "rotation": [
-            0,
-            180,
-            0
-          ],
-          "locators": {
-            "tail": [
-              0,
-              4.5,
-              27.5
-            ]
-          }
-        },
-        {
-          "name": "locator_tail_tip",
-          "parent": "segment5",
-          "pivot": [
-            0,
-            4.5,
-            32
-          ],
-          "rotation": [
-            0,
-            180,
-            0
-          ],
-          "locators": {
-            "tail_tip": [
-              0,
-              4.5,
-              32
-            ]
-          }
-        },
-        {
           "name": "locator_middle",
           "parent": "body",
           "pivot": [
@@ -1832,19 +1762,80 @@
           }
         },
         {
+          "name": "segment5",
+          "parent": "segment4",
+          "pivot": [
+            0,
+            4.5,
+            22.75
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4,
+                0.5,
+                22.75
+              ],
+              "size": [
+                8,
+                8,
+                10
+              ],
+              "inflate": 0.11,
+              "uv": [
+                26,
+                95
+              ]
+            },
+            {
+              "origin": [
+                3.75,
+                2.5,
+                24.75
+              ],
+              "size": [
+                0,
+                4,
+                6
+              ],
+              "uv": [
+                94,
+                58
+              ]
+            },
+            {
+              "origin": [
+                -3.75,
+                2.5,
+                24.75
+              ],
+              "size": [
+                0,
+                4,
+                6
+              ],
+              "uv": [
+                94,
+                62
+              ],
+              "mirror": true
+            }
+          ]
+        },
+        {
           "name": "segment6",
           "parent": "segment5",
           "pivot": [
             0,
             4.5,
-            31.75
+            32.75
           ],
           "cubes": [
             {
               "origin": [
                 -3.5,
                 1,
-                30.75
+                31.75
               ],
               "size": [
                 7,
@@ -1853,7 +1844,7 @@
               ],
               "uv": [
                 52,
-                95
+                159
               ]
             }
           ]
@@ -1864,14 +1855,14 @@
           "pivot": [
             0,
             4.5,
-            32.75
+            33.75
           ],
           "cubes": [
             {
               "origin": [
                 -4,
                 0.5,
-                32.75
+                33.75
               ],
               "size": [
                 8,
@@ -1881,14 +1872,14 @@
               "inflate": 0.11,
               "uv": [
                 26,
-                159
+                223
               ]
             },
             {
               "origin": [
                 3.75,
                 2.5,
-                34.75
+                35.75
               ],
               "size": [
                 0,
@@ -1897,14 +1888,14 @@
               ],
               "uv": [
                 94,
-                122
+                186
               ]
             },
             {
               "origin": [
                 -3.75,
                 2.5,
-                34.75
+                35.75
               ],
               "size": [
                 0,
@@ -1913,7 +1904,7 @@
               ],
               "uv": [
                 94,
-                126
+                190
               ],
               "mirror": true
             }
@@ -1925,14 +1916,14 @@
           "pivot": [
             0,
             4.5,
-            42.75
+            43.75
           ],
           "cubes": [
             {
               "origin": [
                 -3.5,
                 1,
-                41.75
+                42.75
               ],
               "size": [
                 7,
@@ -1941,7 +1932,7 @@
               ],
               "uv": [
                 52,
-                223
+                287
               ]
             }
           ]
@@ -1952,14 +1943,14 @@
           "pivot": [
             0,
             4.5,
-            43.75
+            44.75
           ],
           "cubes": [
             {
               "origin": [
                 -4,
                 0.5,
-                43.75
+                44.75
               ],
               "size": [
                 8,
@@ -1969,14 +1960,14 @@
               "inflate": 0.11,
               "uv": [
                 26,
-                287
+                351
               ]
             },
             {
               "origin": [
                 3.75,
                 2.5,
-                45.75
+                46.75
               ],
               "size": [
                 0,
@@ -1985,14 +1976,14 @@
               ],
               "uv": [
                 94,
-                250
+                314
               ]
             },
             {
               "origin": [
                 -3.75,
                 2.5,
-                45.75
+                46.75
               ],
               "size": [
                 0,
@@ -2001,7 +1992,7 @@
               ],
               "uv": [
                 94,
-                254
+                318
               ],
               "mirror": true
             }
@@ -2013,14 +2004,14 @@
           "pivot": [
             0,
             4.5,
-            53.75
+            54.75
           ],
           "cubes": [
             {
               "origin": [
                 -3.5,
                 1,
-                52.75
+                53.75
               ],
               "size": [
                 7,
@@ -2029,10 +2020,80 @@
               ],
               "uv": [
                 52,
-                351
+                415
               ]
             }
           ]
+        },
+        {
+          "name": "segment11",
+          "parent": "segment10",
+          "pivot": [
+            0,
+            4.5,
+            55.75
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4,
+                0.5,
+                55.75
+              ],
+              "size": [
+                8,
+                8,
+                9
+              ],
+              "inflate": 0.1,
+              "uv": [
+                56,
+                41
+              ]
+            }
+          ]
+        },
+        {
+          "name": "locator_tail",
+          "parent": "segment11",
+          "pivot": [
+            0,
+            4.5,
+            60.5
+          ],
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "locators": {
+            "tail": [
+              0,
+              4.5,
+              60.5
+            ]
+          }
+        },
+        {
+          "name": "locator_tail_tip",
+          "parent": "segment11",
+          "pivot": [
+            0,
+            4.5,
+            65.0
+          ],
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "locators": {
+            "tail_tip": [
+              0,
+              4.5,
+              65.0
+            ]
+          }
         }
       ]
     }

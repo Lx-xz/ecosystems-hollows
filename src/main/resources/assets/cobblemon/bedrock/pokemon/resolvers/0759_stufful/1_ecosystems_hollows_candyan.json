@@ -85,6 +85,96 @@
           "translucent": true
         }
       ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_red",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_red_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_red_shiny.png",
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_orange",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_orange_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_orange_shiny.png",
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_yellow",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_yellow_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_yellow_shiny.png",
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_green",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_green_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_green_shiny.png",
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_blue",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_blue_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_blue_shiny.png",
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_purple",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_purple_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "texture": "ecosystems_hollows:textures/pokemon/stufful/stufful_candyan_purple_shiny.png",
+          "translucent": true
+        }
+      ]
     }
   ]
 }

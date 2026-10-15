@@ -4,9 +4,11 @@ Compat do **Cobblemon Ecosystems** com o **Alex's Caves (Unofficial Port)** do R
 Os animais e criaturas fantasiosas das cavernas dão lugar a Pokémon, alguns com **formas regionais** próprias
 de cada bioma (como Alola e Galar). Mobs hostis e habitantes das cavernas continuam, e vão ganhar Pokémon.
 
-Mod id: `ecosystems_hollows` · Depende de: Cobblemon 1.8+, Cobblemon Ecosystems 1.9+, Alex's Caves 2.0+ (e Citadel).
+Mod id: `ecosystems_hollows` · Depende de: Cobblemon 1.8+, Cobblemon Ecosystems 1.1+, Alex's Caves 2.0+ (e Citadel).
 
-Legenda: `[x]` feito · `[ ]` a fazer · **(decidir)** precisa de decisão
+Este arquivo guarda o plano e o que **falta fazer**; o que já existe está no [README.md](README.md).
+
+Legenda: `[ ]` a fazer · **(decidir)** precisa de decisão
 
 ---
 
@@ -65,31 +67,16 @@ Deep One, Deep One Knight, Deep One Mage, Underzealot, Watcher, Forsaken, Licowi
 
 ---
 
-## Checklist
-
-### Base
-- [x] Projeto NeoForge com Cobblemon, mod base, Alex's Caves e Citadel no jogo de teste
-- [x] Remoção pela tag `cobblemon_ecosystems:removed_animals` do mod base (bloqueia em todo lugar e tira dos spawns)
-- [ ] README
-- [ ] Repositório git
+## A fazer
 
 ### Candy Cavity
-- [x] **Stufful e Bewear Candyan** em 6 cores (vermelho, laranja, amarelo, verde, azul, roxo), translúcidos
-- [x] Spawn na Candy Cavity (Stufful comum, Bewear incomum)
-- [x] Gummy Bear removido
-- [x] Testado no jogo: transparência, cores e spawn funcionam
-- [x] Formas regionais de verdade: Stufful Fada/Normal, Bewear Fada/Lutador
-- [x] Orthworm Candyan no lugar do Gum Worm (Gum Worm removido): modelo próprio com 11 segmentos, gerado por `tools/orthworm_candyan.py`
-- [x] Shiny próprios: gomas em tons vizinhos (ciano, magenta, menta, pêssego, limão, lilás); Orthworm de bala de hortelã
-- [x] Bewear Candyan com modelo próprio: focinho levemente para dentro da cabeça (a face de trás piscava através da gelatina)
-- [ ] Testar: tipos na batalha, evolução Stufful → Bewear mantendo a forma e a cor
+- [ ] Testar no jogo: tipos na batalha, evolução Stufful → Bewear mantendo a forma e a cor, shiny Candyan
 - [ ] Golpes e habilidades próprios das formas Candyan
 - [ ] Nome "Candyan Stufful" na tela (hoje aparece só "Stufful")
-- [ ] Ponyta e Rapidash Candyan (base: forma de Galar)
-- [ ] Magikarp Candyan no lugar do Sweetish Fish
-- [ ] Substituto do Caramel Cube
+- [ ] Ponyta e Rapidash Candyan (base: forma de Galar); remover Candicorn
+- [ ] Magikarp Candyan; remover Sweetish Fish
+- [ ] Substituto do Caramel Cube **(decidir)**; remover Caramel Cube
 - [ ] Swirlix, Milcery e Alcremie
-- [ ] Remover Candicorn, Sweetish Fish e Caramel Cube
 
 ### Outros biomas
 - [ ] Primordial Caves: Pokémon fóssil vivos; remover os dinossauros

@@ -5,7 +5,7 @@
 <details>
 <summary><b>🇺🇸 English</b></summary>
 
-An add-on for [Cobblemon Ecosystems](https://github.com/Lx-xz/living-fauna-flora) and Raguto's
+An add-on for [Cobblemon Ecosystems](https://github.com/Lx-xz/cobblemon-ecosystems) and Raguto's
 **Alex's Caves (Unofficial Port)**. The animals and fantasy creatures of the caves give way to Pokémon, some of them
 with **regional forms** of their own, like Alolan and Galarian forms. Hostile mobs and cave inhabitants stay.
 
@@ -37,7 +37,7 @@ with **regional forms** of their own, like Alolan and Galarian forms. Hostile mo
 <details>
 <summary><b>🇧🇷 Português</b></summary>
 
-Um add-on do [Cobblemon Ecosystems](https://github.com/Lx-xz/living-fauna-flora) para o
+Um add-on do [Cobblemon Ecosystems](https://github.com/Lx-xz/cobblemon-ecosystems) para o
 **Alex's Caves (Unofficial Port)** do Raguto. Os animais e as criaturas fantasiosas das cavernas dão lugar a Pokémon,
 alguns com **formas regionais** próprias, como as de Alola e Galar. Mobs hostis e habitantes das cavernas continuam.
 

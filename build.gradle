@@ -56,6 +56,11 @@ dependencies {
     runtimeOnly 'maven.modrinth:ferrite-core:x7kQWVju'  // 7.0.3-neoforge
     runtimeOnly 'maven.modrinth:modernfix:5HLHxQ2F'     // 5.27.24+mc1.21.1
     runtimeOnly 'maven.modrinth:entityculling:8w8FfUPs' // 1.11.2
+
+    // Mods para testar no runClient (não vão dentro do jar do mod). Também vêm do Modrinth: -Ptest_mods=false desliga.
+    if (project.test_mods.toBoolean()) {
+        runtimeOnly 'maven.modrinth:effortless-building:YxnBXtLv' // 4.2+1.21.1: construir rápido (montar habitats)
+    }
 }
 
 processResources {

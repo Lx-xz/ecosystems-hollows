@@ -1,0 +1,10 @@
+# Fim de linha padronizado (LF) no repositório, em qualquer computador: evita diffs gigantes só por CRLF/LF.
+* text=auto eol=lf
+
+# Scripts do Windows precisam de CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binários: nunca mexer.
+*.png binary
+*.jar binary

@@ -17,13 +17,17 @@ with **regional forms** of their own, like Alolan and Galarian forms. Hostile mo
 - **Candyan shinies**: the jelly bears turn to lighter neighbour shades (cyan, magenta, mint, peach, lemon, lilac) and
   the Orthworm becomes a red, white and mint striped peppermint
 
+### ✅ Every cave
+- The animals and fantasy creatures of the caves no longer spawn; hostile mobs, cave dwellers and bosses stay
+- Each cave has its own Pokémon: fossils in the **Primordial Caves**, Grimer, Koffing and Trubbish in the **Toxic Caves**,
+  Chinchou, Pyukumuku and Relicanth in the **Abyssal Chasm**, Zubat, Venonat and Diglett in the **Forlorn Hollows**,
+  Magnemite and Beldum in the **Magnetic Caves**, Galarian Ponyta, Swirlix and Milcery in the **Candy Cavity**
+- Pokémon born in a cave drop the items of the creatures they replace (tough hide, heavy bone, moth dust, guano,
+  sweet tooth...), so every Alex's Caves recipe still works. Full list: [docs/pokemon-das-cavernas.md](docs/pokemon-das-cavernas.md)
+
 ### 🗺️ Planned
-- **Primordial Caves**: living fossil Pokémon instead of the dinosaurs
-- **Toxic Caves**: a glowing green Grimer and other Poison Pokémon
-- **Abyssal Chasm**: Chinchou, Lanturn, Pyukumuku, Finneon and Relicanth
-- **Forlorn Hollows**: Venomoth, Dustox, Zubat, Noibat, Diglett and Drilbur
-- **Magnetic Caves**: Magnemite, Nosepass, Klink and Beldum
-- **Candy Cavity**: Candyan Ponyta and Rapidash, Swirlix, Milcery and Alcremie
+- Regional forms for more cave Pokémon (a glowing green Grimer, Candyan Ponyta and Magikarp...)
+- Bosses that become legendary Pokémon, caught in a special way: Tremorzilla, Hullbreaker, Forsaken
 - Deep Ones, Underzealots and Licowitches with their own Pokémon
 
 ### Requirements
@@ -49,13 +53,18 @@ alguns com **formas regionais** próprias, como as de Alola e Galar. Mobs hostis
 - **Candyan shiny**: os ursos de gelatina ganham tons vizinhos mais claros (ciano, magenta, menta, pêssego, limão,
   lilás) e o Orthworm vira uma bala de hortelã listrada de vermelho, branco e menta
 
+### ✅ Todas as cavernas
+- Os animais e criaturas fantasiosas das cavernas não nascem mais; mobs hostis, habitantes e chefes continuam
+- Cada caverna tem seus Pokémon: fósseis nas **Primordial Caves**, Grimer, Koffing e Trubbish nas **Toxic Caves**,
+  Chinchou, Pyukumuku e Relicanth no **Abyssal Chasm**, Zubat, Venonat e Diglett nas **Forlorn Hollows**,
+  Magnemite e Beldum nas **Magnetic Caves**, Ponyta de Galar, Swirlix e Milcery na **Candy Cavity**
+- Os Pokémon que nascem numa caverna dão os itens das criaturas que eles substituem (couro duro, osso pesado, pó de
+  mariposa, guano, dente-doce...), então as receitas do Alex's Caves continuam funcionando. Lista completa:
+  [docs/pokemon-das-cavernas.md](docs/pokemon-das-cavernas.md)
+
 ### 🗺️ Planejado
-- **Primordial Caves**: Pokémon fóssil vivos no lugar dos dinossauros
-- **Toxic Caves**: um Grimer verde que brilha e outros Pokémon de Veneno
-- **Abyssal Chasm**: Chinchou, Lanturn, Pyukumuku, Finneon e Relicanth
-- **Forlorn Hollows**: Venomoth, Dustox, Zubat, Noibat, Diglett e Drilbur
-- **Magnetic Caves**: Magnemite, Nosepass, Klink e Beldum
-- **Candy Cavity**: Ponyta e Rapidash Candyan, Swirlix, Milcery e Alcremie
+- Formas regionais para mais Pokémon das cavernas (um Grimer verde que brilha, Ponyta e Magikarp Candyan...)
+- Chefes que viram Pokémon lendários, capturados de um jeito especial: Tremorzilla, Hullbreaker, Forsaken
 - Deep Ones, Underzealots e Licowitches com seus próprios Pokémon
 
 ### Requisitos

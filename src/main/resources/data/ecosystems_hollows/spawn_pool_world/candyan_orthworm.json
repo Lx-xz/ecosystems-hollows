@@ -18,6 +18,15 @@
         "biomes": [
           "alexscaves:candy_cavity"
         ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_tooth",
+            "percentage": 50.0
+          }
+        ]
       }
     }
   ]

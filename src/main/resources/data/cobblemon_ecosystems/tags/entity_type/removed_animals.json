@@ -8,6 +8,86 @@
     {
       "id": "alexscaves:gum_worm",
       "required": false
+    },
+    {
+      "id": "alexscaves:subterranodon",
+      "required": false
+    },
+    {
+      "id": "alexscaves:vallumraptor",
+      "required": false
+    },
+    {
+      "id": "alexscaves:grottoceratops",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tremorsaurus",
+      "required": false
+    },
+    {
+      "id": "alexscaves:relicheirus",
+      "required": false
+    },
+    {
+      "id": "alexscaves:atlatitan",
+      "required": false
+    },
+    {
+      "id": "alexscaves:trilocaris",
+      "required": false
+    },
+    {
+      "id": "alexscaves:raycat",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gammaroach",
+      "required": false
+    },
+    {
+      "id": "alexscaves:radgill",
+      "required": false
+    },
+    {
+      "id": "alexscaves:lanternfish",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sea_pig",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tripodfish",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gossamer_worm",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gloomoth",
+      "required": false
+    },
+    {
+      "id": "alexscaves:vesper",
+      "required": false
+    },
+    {
+      "id": "alexscaves:corrodent",
+      "required": false
+    },
+    {
+      "id": "alexscaves:candicorn",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweetish_fish",
+      "required": false
+    },
+    {
+      "id": "alexscaves:caramel_cube",
+      "required": false
     }
   ]
 }

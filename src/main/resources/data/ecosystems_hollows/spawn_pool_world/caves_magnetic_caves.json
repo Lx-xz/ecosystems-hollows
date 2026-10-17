@@ -1,0 +1,69 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-magnetic_caves-magnemite",
+      "pokemon": "magnemite",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:magnetic_caves"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-magnetic_caves-nosepass",
+      "pokemon": "nosepass",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "20-35",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:magnetic_caves"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-magnetic_caves-klink",
+      "pokemon": "klink",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:magnetic_caves"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-magnetic_caves-beldum",
+      "pokemon": "beldum",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "20-35",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:magnetic_caves"
+        ]
+      }
+    }
+  ]
+}

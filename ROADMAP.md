@@ -85,6 +85,15 @@ Deep One, Deep One Knight, Deep One Mage, Underzealot, Watcher, Forsaken, Licowi
 - [ ] Forlorn Hollows: Venomoth, Dustox, Zubat, Noibat, Diglett, Drilbur; remover Gloomoth, Vesper, Corrodent
 - [ ] Magnetic Caves: Magnemite, Nosepass, Klink, Beldum
 
+### Spawns e drops das cavernas
+- [ ] Revisar a lista em docs/pokemon-das-cavernas.md (espécies, raridade, drops) e passar para tools/cave_spawns.py
+- [ ] Pokémon de água no lugar do Radgill; substituto definitivo do Caramel Cube
+
+### Chefes que viram Pokémon lendários
+- [ ] **Tremorzilla** como lendário no fim da progressão do Primordial Caves, com a progressão feita com Pokémon
+- [ ] **Hullbreaker** e **Forsaken** (o morcego gigante das Forlorn Hollows) também
+- [ ] Captura diferente: não basta jogar a Pokébola enquanto ele ataca (decidir como)
+
 ### Habitantes com Pokémon
 - [ ] Deep Ones com Pokémon do abismo
 - [ ] Underzealots com Pokémon da Forlorn Hollows

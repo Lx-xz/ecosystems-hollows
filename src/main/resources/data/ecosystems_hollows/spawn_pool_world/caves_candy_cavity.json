@@ -1,0 +1,154 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian",
+      "pokemon": "ponyta galarian",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 4.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian",
+      "pokemon": "rapidash galarian",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "40-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-magikarp",
+      "pokemon": "magikarp",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 5,
+        "entries": [
+          {
+            "item": "alexscaves:sweetish_fish_red",
+            "percentage": 12.0
+          },
+          {
+            "item": "alexscaves:sweetish_fish_green",
+            "percentage": 12.0
+          },
+          {
+            "item": "alexscaves:sweetish_fish_yellow",
+            "percentage": 12.0
+          },
+          {
+            "item": "alexscaves:sweetish_fish_blue",
+            "percentage": 12.0
+          },
+          {
+            "item": "alexscaves:sweetish_fish_pink",
+            "percentage": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-goomy",
+      "pokemon": "goomy",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:caramel",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-swirlix",
+      "pokemon": "swirlix",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-milcery",
+      "pokemon": "milcery",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "15-30",
+      "weight": 2.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      }
+    }
+  ]
+}

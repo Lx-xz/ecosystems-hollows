@@ -1,0 +1,247 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-venonat",
+      "pokemon": "venonat",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 5.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:moth_dust",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-venomoth",
+      "pokemon": "venomoth",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "31-45",
+      "weight": 2.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:moth_dust",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-dustox",
+      "pokemon": "dustox",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "20-35",
+      "weight": 2.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:moth_dust",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-zubat",
+      "pokemon": "zubat",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 8.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:guano",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:vesper_wing",
+            "percentage": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-golbat",
+      "pokemon": "golbat",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "22-40",
+      "weight": 2.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:guano",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:vesper_wing",
+            "percentage": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-noibat",
+      "pokemon": "noibat",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:vesper_wing",
+            "percentage": 30.0
+          },
+          {
+            "item": "alexscaves:guano",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-diglett",
+      "pokemon": "diglett",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:corrodent_teeth",
+            "percentage": 30.0
+          },
+          {
+            "item": "minecraft:coarse_dirt",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-dugtrio",
+      "pokemon": "dugtrio",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "26-45",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:corrodent_teeth",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-forlorn_hollows-drilbur",
+      "pokemon": "drilbur",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:forlorn_hollows"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:corrodent_teeth",
+            "percentage": 40.0
+          }
+        ]
+      }
+    }
+  ]
+}

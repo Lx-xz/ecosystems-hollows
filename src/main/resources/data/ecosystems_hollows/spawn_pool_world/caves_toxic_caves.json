@@ -1,0 +1,210 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-toxic_caves-grimer",
+      "pokemon": "grimer",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 8.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-muk",
+      "pokemon": "muk",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "38-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-koffing",
+      "pokemon": "koffing",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-weezing",
+      "pokemon": "weezing",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "35-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-trubbish",
+      "pokemon": "trubbish",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 5.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "minecraft:bone",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-garbodor",
+      "pokemon": "garbodor",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "36-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "minecraft:bone",
+            "percentage": 60.0,
+            "quantityRange": "1-3"
+          },
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-croagunk",
+      "pokemon": "croagunk",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-skorupi",
+      "pokemon": "skorupi",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "minecraft:bone",
+            "percentage": 40.0
+          }
+        ]
+      }
+    }
+  ]
+}

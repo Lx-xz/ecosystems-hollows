@@ -1,0 +1,163 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-abyssal_chasm-chinchou",
+      "pokemon": "chinchou",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "20-35",
+      "weight": 8.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:abyssal_chasm"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:lanternfish",
+            "percentage": 40.0
+          },
+          {
+            "item": "alexscaves:bioluminesscence",
+            "percentage": 20.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-abyssal_chasm-lanturn",
+      "pokemon": "lanturn",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "uncommon",
+      "level": "30-45",
+      "weight": 2.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:abyssal_chasm"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:bioluminesscence",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-abyssal_chasm-pyukumuku",
+      "pokemon": "pyukumuku",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "20-35",
+      "weight": 5.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:abyssal_chasm"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sea_pig",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-abyssal_chasm-finneon",
+      "pokemon": "finneon",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "20-35",
+      "weight": 5.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:abyssal_chasm"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:tripodfish",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-abyssal_chasm-lumineon",
+      "pokemon": "lumineon",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "uncommon",
+      "level": "31-45",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:abyssal_chasm"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:tripodfish",
+            "percentage": 50.0
+          },
+          {
+            "item": "alexscaves:bioluminesscence",
+            "percentage": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-abyssal_chasm-relicanth",
+      "pokemon": "relicanth",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "rare",
+      "level": "30-45",
+      "weight": 2.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:abyssal_chasm"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:bioluminesscence",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [
+    "alexscaves"
+  ],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "ecosystems_hollows-primordial_caves-aerodactyl",
+      "pokemon": "aerodactyl",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "25-40",
+      "weight": 4.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-cranidos",
+      "pokemon": "cranidos",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 60.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-rampardos",
+      "pokemon": "rampardos",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "32-45",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-shieldon",
+      "pokemon": "shieldon",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 60.0
+          },
+          {
+            "item": "alexscaves:tough_hide",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-bastiodon",
+      "pokemon": "bastiodon",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "30-45",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:tough_hide",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-tyrunt",
+      "pokemon": "tyrunt",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "20-32",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-tyrantrum",
+      "pokemon": "tyrantrum",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "39-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 60.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-archen",
+      "pokemon": "archen",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "20-32",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 3,
+        "entries": [
+          {
+            "item": "minecraft:feather",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 40.0
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 20.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-archeops",
+      "pokemon": "archeops",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "37-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "minecraft:feather",
+            "percentage": 70.0,
+            "quantityRange": "1-3"
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-amaura",
+      "pokemon": "amaura",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "20-32",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 40.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-aurorus",
+      "pokemon": "aurorus",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "39-50",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:dinosaur_chop",
+            "percentage": 80.0,
+            "quantityRange": "2-4"
+          },
+          {
+            "item": "alexscaves:heavy_bone",
+            "percentage": 60.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-kabuto",
+      "pokemon": "kabuto",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "15-30",
+      "weight": 5.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:trilocaris_tail",
+            "percentage": 60.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-omanyte",
+      "pokemon": "omanyte",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "15-30",
+      "weight": 5.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:trilocaris_tail",
+            "percentage": 60.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-primordial_caves-anorith",
+      "pokemon": "anorith",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:primordial_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:trilocaris_tail",
+            "percentage": 60.0
+          }
+        ]
+      }
+    }
+  ]
+}

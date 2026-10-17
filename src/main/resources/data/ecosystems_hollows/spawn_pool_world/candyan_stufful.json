@@ -18,6 +18,16 @@
         "biomes": [
           "alexscaves:candy_cavity"
         ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:gelatin_red",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
+        ]
       }
     },
     {
@@ -32,6 +42,16 @@
         "canSeeSky": false,
         "biomes": [
           "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:gelatin_red",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
         ]
       }
     },
@@ -48,6 +68,16 @@
         "biomes": [
           "alexscaves:candy_cavity"
         ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:gelatin_yellow",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
+        ]
       }
     },
     {
@@ -62,6 +92,16 @@
         "canSeeSky": false,
         "biomes": [
           "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:gelatin_green",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
         ]
       }
     },
@@ -78,6 +118,16 @@
         "biomes": [
           "alexscaves:candy_cavity"
         ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:gelatin_blue",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
+        ]
       }
     },
     {
@@ -92,6 +142,16 @@
         "canSeeSky": false,
         "biomes": [
           "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:gelatin_pink",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
         ]
       }
     }

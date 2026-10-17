@@ -1,0 +1,19 @@
+{
+  "species": "cobblemon:carvanha",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [
+        "toxian"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/carvanha/carvanha_toxian.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/carvanha/carvanha_toxian_emissive.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

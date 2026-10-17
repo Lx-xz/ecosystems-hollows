@@ -1,0 +1,20 @@
+{
+  "species": "cobblemon:sharpedo",
+  "order": 1,
+  "variations": [
+    {
+      "aspects": [
+        "toxian"
+      ],
+      "model": "ecosystems_hollows:sharpedo_toxian.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/sharpedo/sharpedo_toxian.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/sharpedo/sharpedo_toxian_emissive.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

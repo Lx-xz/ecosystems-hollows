@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 AC = "alexscaves:"
+FLAVORS = ["candy_corn", "peppermint", "mint_chip", "cherry_ice", "cotton_candy"]
 
 
 def d(item, chance, qty="1"):
@@ -52,6 +53,11 @@ CAVES = {
             ("garbodor", "grounded", "rare", "36-50", 1, [d("minecraft:bone", 60, "1-3"), d(AC + "toxic_paste", 40)], "Raycat"),
             ("croagunk", "grounded", "uncommon", "18-30", 3, [d(AC + "toxic_paste", 40)], "-"),
             ("skorupi", "grounded", "uncommon", "18-30", 3, [d("minecraft:bone", 40)], "-"),
+            # Carvanha e Sharpedo Toxian (tools/toxian_carvanha.py): o peixe radioativo de três olhos.
+            # Nascem dentro do ácido (e na água); o ácido não machuca os Toxian (EcosystemsHollows).
+            ("carvanha form=toxian aspect=toxian", "acid", "common", "18-30", 6, [d(AC + "radgill", 50)], "Radgill"),
+            ("sharpedo form=toxian aspect=toxian", "acid", "rare", "30-45", 1, [d(AC + "radgill", 70, "1-2")], "Radgill"),
+            ("carvanha form=toxian aspect=toxian", "submerged", "common", "18-30", 3, [d(AC + "radgill", 50)], "Radgill"),
         ],
     },
     "abyssal_chasm": {
@@ -86,8 +92,11 @@ CAVES = {
         # Gummy Bear e Gum Worm já saem pelas formas Candyan (arquivos candyan_*.json).
         "removed": ["candicorn", "sweetish_fish", "caramel_cube"],
         "pokemon": [
-            ("ponyta galarian", "grounded", "uncommon", "15-30", 4, [d(AC + "sweet_puff", 60, "1-2")], "Candicorn"),
-            ("rapidash galarian", "grounded", "rare", "40-50", 1, [d(AC + "sweet_puff", 80, "2-3")], "Candicorn"),
+            # Ponyta e Rapidash Candyan: o de Galar com os sabores dos Candicorns (tools/candyan_ponyta.py).
+            *[(f"ponyta galarian aspect=candyan aspect=candyan_{f}", "grounded", "uncommon", "15-30", 1,
+               [d(AC + "sweet_puff", 60, "1-2")], "Candicorn") for f in FLAVORS],
+            *[(f"rapidash galarian aspect=candyan aspect=candyan_{f}", "grounded", "rare", "40-50", 0.2,
+               [d(AC + "sweet_puff", 80, "2-3")], "Candicorn") for f in FLAVORS],
             ("magikarp", "submerged", "common", "5-20", 6,
              [d(AC + "sweetish_fish_" + c, 12) for c in ("red", "green", "yellow", "blue", "pink")], "Sweetish Fish"),
             ("goomy", "grounded", "uncommon", "15-30", 3, [d(AC + "caramel", 60, "1-2")], "Caramel Cube"),
@@ -133,16 +142,19 @@ def main():
     for biome, cave in CAVES.items():
         spawns = []
         for species, position, bucket, levels, weight, drops, _ in cave["pokemon"]:
+            acid = position == "acid"
             spawn = {
-                "id": f"ecosystems_hollows-{biome}-{species.replace(' ', '-')}",
+                "id": f"ecosystems_hollows-{biome}-{species.replace('aspect=', '').replace(' ', '-')}" + ("-acid" if acid else ""),
                 "pokemon": species,
                 "type": "pokemon",
-                "spawnablePositionType": position,
+                "spawnablePositionType": "submerged" if acid else position,
                 "bucket": bucket,
                 "level": levels,
                 "weight": float(weight),
                 "condition": {"canSeeSky": False, "biomes": [AC + biome]},
             }
+            if acid:
+                spawn["condition"]["fluid"] = AC + "acid"
             if drops:
                 spawn["drops"] = drop_table(drops)
             spawns.append(spawn)
@@ -193,9 +205,10 @@ def write_md(path):
             lines += ["Saem: " + ", ".join(m.replace("_", " ").title() for m in cave["removed"]), ""]
         lines += ["| Pokémon | Substitui | Onde | Raridade | Níveis | Peso | Drops |", "|---|---|---|---|---|---|---|"]
         for species, position, bucket, levels, weight, drops, replaces in cave["pokemon"]:
-            where = {"grounded": "chão", "submerged": "água"}[position]
+            where = {"grounded": "chão", "submerged": "água", "acid": "ácido"}[position]
             drop_text = ", ".join(f"{x['item'].split(':')[1]} {x['qty']} ({x['percentage']}%)" for x in drops) or "normais do Cobblemon"
-            lines.append(f"| {species.title()} | {replaces} | {where} | {bucket} | {levels} | {weight} | {drop_text} |")
+            label = species.split(" form=")[0].split(" aspect=")[0].title() + (" Toxian" if "toxian" in species else "") + (" Candyan " + species.rsplit("candyan_", 1)[1].replace("_", " ") if "candyan_" in species else "")
+            lines.append(f"| {label} | {replaces} | {where} | {bucket} | {levels} | {weight} | {drop_text} |")
         lines.append("")
     lines += [
         "## Candyan (já existentes)",
@@ -208,7 +221,7 @@ def write_md(path):
         "",
         "## A decidir",
         "",
-        "- Toxic Caves: um Pokémon de água no lugar do Radgill (Mareanie? Qwilfish?) e o Grimer verde que brilha",
+        "- Toxic Caves: o Grimer verde que brilha",
         "- Candy Cavity: o substituto definitivo do Caramel Cube (hoje Goomy dá caramelo)",
         "- Chefes viram Pokémon lendários, com captura diferente (não é só jogar a Pokébola enquanto ele ataca):",
         "  - **Tremorzilla**: o fim da progressão do Primordial Caves, feita com Pokémon",

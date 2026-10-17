@@ -6,13 +6,13 @@
   "neededUninstalledMods": [],
   "spawns": [
     {
-      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian",
-      "pokemon": "ponyta galarian",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_candy_corn",
+      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_candy_corn",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
       "level": "15-30",
-      "weight": 4.0,
+      "weight": 1.0,
       "condition": {
         "canSeeSky": false,
         "biomes": [
@@ -31,13 +31,213 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian",
-      "pokemon": "rapidash galarian",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_peppermint",
+      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_peppermint",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_mint_chip",
+      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_mint_chip",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_cherry_ice",
+      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_cherry_ice",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_cotton_candy",
+      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_cotton_candy",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_candy_corn",
+      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_candy_corn",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "rare",
       "level": "40-50",
-      "weight": 1.0,
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_peppermint",
+      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_peppermint",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "40-50",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_mint_chip",
+      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_mint_chip",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "40-50",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_cherry_ice",
+      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_cherry_ice",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "40-50",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_puff",
+            "percentage": 80.0,
+            "quantityRange": "2-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_cotton_candy",
+      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_cotton_candy",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "40-50",
+      "weight": 0.2,
       "condition": {
         "canSeeSky": false,
         "biomes": [

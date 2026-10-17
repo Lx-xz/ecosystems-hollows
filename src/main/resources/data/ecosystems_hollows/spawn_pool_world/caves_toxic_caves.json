@@ -205,6 +205,81 @@
           }
         ]
       }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-carvanha-form=toxian-toxian-acid",
+      "pokemon": "carvanha form=toxian aspect=toxian",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 6.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ],
+        "fluid": "alexscaves:acid"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:radgill",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-sharpedo-form=toxian-toxian-acid",
+      "pokemon": "sharpedo form=toxian aspect=toxian",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "rare",
+      "level": "30-45",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ],
+        "fluid": "alexscaves:acid"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:radgill",
+            "percentage": 70.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-carvanha-form=toxian-toxian",
+      "pokemon": "carvanha form=toxian aspect=toxian",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "18-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:radgill",
+            "percentage": 50.0
+          }
+        ]
+      }
     }
   ]
 }

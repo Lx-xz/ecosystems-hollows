@@ -43,9 +43,15 @@ dependencies {
     compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:2.0.0'
     runtimeOnly 'thedarkcolour:kotlinforforge-neoforge:5.12.0'
 
-    // Alex's Caves (port do Raguto) e Citadel. Ids exatos das versões no Modrinth:
-    runtimeOnly 'maven.modrinth:alexs-caves-unofficial-port:pC1MYhqR' // 2.0.10
-    runtimeOnly 'maven.modrinth:citadel-1.21.1-port:mIylVpkN'         // 2.7.6
+    // Alex's Caves: o port do Raguto (com a Citadel) ou o Alex's Caves Continued (com a CodxLib). Os dois usam os
+    // mesmos ids, então o mod funciona com qualquer um; alex_port no gradle.properties escolhe qual roda no teste.
+    if (project.alex_port == 'continued') {
+        runtimeOnly 'maven.modrinth:alexs-caves-continued:wSeCJMlI' // 1.1.2+neoforge-1.21.1
+        runtimeOnly 'maven.modrinth:codxlib:MMcDASmX'               // 1.6.1+neoforge-1.21.1
+    } else {
+        runtimeOnly 'maven.modrinth:alexs-caves-unofficial-port:pC1MYhqR' // 2.0.10
+        runtimeOnly 'maven.modrinth:citadel-1.21.1-port:mIylVpkN'         // 2.7.6
+    }
 
     // Mod base (Cobblemon Ecosystems): usa o jar compilado em ../base. Rode "gradlew build" lá antes.
     runtimeOnly fileTree(dir: '../base/build/libs', include: 'cobblemon-ecosystems-*.jar')

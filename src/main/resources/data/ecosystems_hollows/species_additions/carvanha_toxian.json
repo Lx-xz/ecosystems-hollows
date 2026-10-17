@@ -1,0 +1,18 @@
+{
+  "target": "cobblemon:carvanha",
+  "forms": [
+    {
+      "name": "Toxian",
+      "primaryType": "poison",
+      "secondaryType": "water",
+      "aspects": [
+        "toxian"
+      ],
+      "labels": [
+        "toxian_form",
+        "ecosystems_hollows"
+      ],
+      "battleOnly": false
+    }
+  ]
+}

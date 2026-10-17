@@ -34,7 +34,7 @@ with **regional forms** of their own, like Alolan and Galarian forms. Hostile mo
 - Minecraft 1.21.1 · NeoForge
 - Cobblemon 1.8+ and Kotlin for Forge
 - Cobblemon Ecosystems 1.0+
-- Alex's Caves (Unofficial Port) 2.0+ and Citadel (Unofficial Port)
+- Alex's Caves: the Unofficial Port 2.0+ (with Citadel) or Alex's Caves Continued 1.1+ (with CodxLib)
 
 </details>
 
@@ -71,7 +71,7 @@ alguns com **formas regionais** próprias, como as de Alola e Galar. Mobs hostis
 - Minecraft 1.21.1 · NeoForge
 - Cobblemon 1.8+ e Kotlin for Forge
 - Cobblemon Ecosystems 1.0+
-- Alex's Caves (Unofficial Port) 2.0+ e Citadel (Unofficial Port)
+- Alex's Caves: o Unofficial Port 2.0+ (com a Citadel) ou o Alex's Caves Continued 1.1+ (com a CodxLib)
 
 </details>
 

@@ -262,3 +262,38 @@ def save_preview(preview_dir, species, texture, variants):
 
 if __name__ == "__main__":
     main()
+
+
+# ----- Sombra em rampa (para as texturas novas não ficarem "lisas") -----
+
+def ramp(color, t):
+    """A cor no ponto t (0 = sombra, 1 = luz) de uma rampa que vai de uma versão escura a uma clara da cor."""
+    t = max(0.0, min(1.0, t))
+    dark = tuple(c * 0.58 for c in color)
+    light = tuple(c + (255 - c) * 0.25 for c in color)
+    return tuple(int(d + (l - d) * t) for d, l in zip(dark, light))
+
+
+def luma_ranges(texture, key_of):
+    """Para cada grupo de pixels (key_of(x, y) -> chave ou None): o menor e o maior brilho do original. Assim cada
+    grupo usa a rampa inteira, do escuro ao claro, mesmo que o original seja quase de uma cor só."""
+    src = texture.convert("RGBA")
+    sp = src.load()
+    ranges = {}
+    for y in range(src.height):
+        for x in range(src.width):
+            if sp[x, y][3] == 0:
+                continue
+            key = key_of(x, y)
+            if key is None:
+                continue
+            l = luma(sp[x, y])
+            lo, hi = ranges.get(key, (l, l))
+            ranges[key] = (min(lo, l), max(hi, l))
+    return ranges
+
+
+def shade_t(ranges, key, l):
+    """O brilho l do pixel, de 0 a 1 dentro do seu grupo (meio-termo se o grupo tem um brilho só)."""
+    lo, hi = ranges.get(key, (0.0, 1.0))
+    return 0.6 if hi - lo < 0.02 else (l - lo) / (hi - lo)

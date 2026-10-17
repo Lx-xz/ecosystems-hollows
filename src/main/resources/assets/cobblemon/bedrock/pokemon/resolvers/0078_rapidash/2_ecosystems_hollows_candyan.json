@@ -1,0 +1,76 @@
+{
+  "species": "cobblemon:rapidash",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "galarian",
+        "candyan_candy_corn"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_candy_corn.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "galarian",
+        "candyan_peppermint"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_peppermint.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "galarian",
+        "candyan_mint_chip"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_mint_chip.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "galarian",
+        "candyan_cherry_ice"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cherry_ice.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "galarian",
+        "candyan_cotton_candy"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cotton_candy.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

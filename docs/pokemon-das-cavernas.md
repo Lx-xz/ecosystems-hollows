@@ -45,6 +45,9 @@ Saem: Raycat, Gammaroach, Radgill
 | Garbodor | Raycat | chão | rare | 36-50 | 1 | bone 1-3 (60%), toxic_paste 1 (40%) |
 | Croagunk | - | chão | uncommon | 18-30 | 3 | toxic_paste 1 (40%) |
 | Skorupi | - | chão | uncommon | 18-30 | 3 | bone 1 (40%) |
+| Carvanha Toxian | Radgill | ácido | common | 18-30 | 6 | radgill 1 (50%) |
+| Sharpedo Toxian | Radgill | ácido | rare | 30-45 | 1 | radgill 1-2 (70%) |
+| Carvanha Toxian | Radgill | água | common | 18-30 | 3 | radgill 1 (50%) |
 
 ## Abyssal Chasm
 
@@ -81,8 +84,16 @@ Saem: Candicorn, Sweetish Fish, Caramel Cube
 
 | Pokémon | Substitui | Onde | Raridade | Níveis | Peso | Drops |
 |---|---|---|---|---|---|---|
-| Ponyta Galarian | Candicorn | chão | uncommon | 15-30 | 4 | sweet_puff 1-2 (60%) |
-| Rapidash Galarian | Candicorn | chão | rare | 40-50 | 1 | sweet_puff 2-3 (80%) |
+| Ponyta Galarian Candyan candy corn | Candicorn | chão | uncommon | 15-30 | 1 | sweet_puff 1-2 (60%) |
+| Ponyta Galarian Candyan peppermint | Candicorn | chão | uncommon | 15-30 | 1 | sweet_puff 1-2 (60%) |
+| Ponyta Galarian Candyan mint chip | Candicorn | chão | uncommon | 15-30 | 1 | sweet_puff 1-2 (60%) |
+| Ponyta Galarian Candyan cherry ice | Candicorn | chão | uncommon | 15-30 | 1 | sweet_puff 1-2 (60%) |
+| Ponyta Galarian Candyan cotton candy | Candicorn | chão | uncommon | 15-30 | 1 | sweet_puff 1-2 (60%) |
+| Rapidash Galarian Candyan candy corn | Candicorn | chão | rare | 40-50 | 0.2 | sweet_puff 2-3 (80%) |
+| Rapidash Galarian Candyan peppermint | Candicorn | chão | rare | 40-50 | 0.2 | sweet_puff 2-3 (80%) |
+| Rapidash Galarian Candyan mint chip | Candicorn | chão | rare | 40-50 | 0.2 | sweet_puff 2-3 (80%) |
+| Rapidash Galarian Candyan cherry ice | Candicorn | chão | rare | 40-50 | 0.2 | sweet_puff 2-3 (80%) |
+| Rapidash Galarian Candyan cotton candy | Candicorn | chão | rare | 40-50 | 0.2 | sweet_puff 2-3 (80%) |
 | Magikarp | Sweetish Fish | água | common | 5-20 | 6 | sweetish_fish_red 1 (12%), sweetish_fish_green 1 (12%), sweetish_fish_yellow 1 (12%), sweetish_fish_blue 1 (12%), sweetish_fish_pink 1 (12%) |
 | Goomy | Caramel Cube | chão | uncommon | 15-30 | 3 | caramel 1-2 (60%) |
 | Swirlix | - | chão | uncommon | 15-30 | 3 | normais do Cobblemon |
@@ -107,7 +118,7 @@ Saem: Candicorn, Sweetish Fish, Caramel Cube
 
 ## A decidir
 
-- Toxic Caves: um Pokémon de água no lugar do Radgill (Mareanie? Qwilfish?) e o Grimer verde que brilha
+- Toxic Caves: o Grimer verde que brilha
 - Candy Cavity: o substituto definitivo do Caramel Cube (hoje Goomy dá caramelo)
 - Chefes viram Pokémon lendários, com captura diferente (não é só jogar a Pokébola enquanto ele ataca):
   - **Tremorzilla**: o fim da progressão do Primordial Caves, feita com Pokémon

@@ -1,0 +1,548 @@
+<title>Pokédex {{TITLE}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Rubik:wght@400;500;600;700&family=VT323&display=swap">
+<style>
+/* Layout: uma Pokédex aberta. À esquerda a carcaça com a lente, os LEDs, a tela 3D e os botões; à direita a ficha
+   (tela de LCD) e a lista das formas. No celular, a metade da tela 3D fica presa no topo enquanto a lista rola. */
+:root {
+  --page: #ece7e4;
+  --page-ink: #3a2f2f;
+  --shell: #d62a35;
+  --shell-dark: #a51b25;
+  --shell-light: #ef5560;
+  --bezel: #e8e4dc;
+  --bezel-dark: #b9b3a8;
+  --screen: #10141b;
+  --lcd: #b9d3a0;
+  --lcd-ink: #1f3317;
+  --lcd-dim: #4f6a42;
+  --lens: #3aa5ff;
+  --font-display: "Pixelify Sans", "Courier New", monospace;
+  --font-body: "Rubik", "Segoe UI", system-ui, sans-serif;
+  --font-lcd: "VT323", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --page: #17121a; --page-ink: #efe7ea; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --page: #17121a; --page-ink: #efe7ea; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0; background: radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--shell) 14%, var(--page)), var(--page) 55%);
+  color: var(--page-ink); font-family: var(--font-body); font-size: 14px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px;
+}
+.dex { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.05fr) 22px minmax(0, 1fr);
+  align-items: stretch; filter: drop-shadow(0 18px 30px rgba(60, 10, 14, 0.35)); }
+.half { background: linear-gradient(160deg, var(--shell-light), var(--shell) 30%, var(--shell-dark));
+  border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 14px; min-width: 0;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -4px 0 rgba(0, 0, 0, 0.25); }
+.left { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+.right { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.hinge { background: linear-gradient(90deg, var(--shell-dark), #6e1118 45%, var(--shell-dark)); margin-block: 26px;
+  border-radius: 6px; box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2); }
+/* Topo: a lente grande, os LEDs e o nome. */
+.top { display: flex; align-items: center; gap: 14px; }
+.lens { width: 64px; height: 64px; border-radius: 50%; flex: none; border: 5px solid #f4f1ea;
+  background: radial-gradient(circle at 35% 30%, #e6f6ff 0 10%, var(--lens) 32%, #0a4f9a 78%);
+  box-shadow: 0 0 0 3px #3b0c10, 0 0 18px rgba(58, 165, 255, 0.55); }
+.leds { display: flex; gap: 8px; align-self: flex-start; margin-top: 6px; }
+.led { width: 13px; height: 13px; border-radius: 50%; box-shadow: 0 0 0 2px #3b0c10, inset -2px -2px 0 rgba(0,0,0,0.25); }
+.led.r { background: #ff3b47; } .led.y { background: #ffd23b; } .led.g { background: #4fd35a; }
+.brand { margin-left: auto; text-align: right; color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
+.brand h1 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: 0.03em; line-height: 1; }
+.brand p { margin: 4px 0 0; font-size: 12px; opacity: 0.9; }
+/* Tela 3D com moldura. */
+.bezel { background: linear-gradient(180deg, var(--bezel), var(--bezel-dark)); border-radius: 14px 14px 14px 40px;
+  padding: 16px 16px 12px; box-shadow: inset 0 2px 0 #fff, inset 0 -3px 0 rgba(0, 0, 0, 0.18); }
+.bezel-top { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; }
+.bezel-top span { width: 7px; height: 7px; border-radius: 50%; background: #c8202b; }
+.stage { position: relative; height: clamp(300px, 46vh, 520px); border-radius: 8px; overflow: hidden; touch-action: none;
+  background: radial-gradient(ellipse at 50% 80%, #26313f, var(--screen) 70%); box-shadow: inset 0 0 0 3px #05070a; }
+.stage::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 3px); }
+.stage canvas { display: block; width: 100%; height: 100%; cursor: grab; }
+.stage canvas:active { cursor: grabbing; }
+.now { position: absolute; left: 12px; bottom: 8px; z-index: 1; color: #d8f0ff; font-family: var(--font-lcd); font-size: 22px;
+  text-shadow: 0 0 6px rgba(58, 165, 255, 0.6); max-width: calc(100% - 24px); }
+.bezel-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.power { width: 18px; height: 18px; border-radius: 50%; background: #c8202b; box-shadow: inset -2px -2px 0 rgba(0,0,0,0.3); }
+.speaker { display: flex; flex-direction: column; gap: 3px; }
+.speaker i { display: block; width: 34px; height: 3px; border-radius: 2px; background: #6d675f; }
+/* Botões do aparelho. */
+.controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pad { display: grid; grid-template-columns: repeat(3, 26px); grid-template-rows: repeat(3, 26px); }
+.pad button { background: #26262a; border: none; color: #8d8d96; font-size: 12px; cursor: pointer; padding: 0; }
+.pad .u { grid-area: 1 / 2; border-radius: 5px 5px 0 0; } .pad .d { grid-area: 3 / 2; border-radius: 0 0 5px 5px; }
+.pad .l { grid-area: 2 / 1; border-radius: 5px 0 0 5px; } .pad .r { grid-area: 2 / 3; border-radius: 0 5px 5px 0; }
+.pad .c { grid-area: 2 / 2; background: #26262a; }
+.pad button:hover { color: #fff; }
+.pill { font: 600 12px var(--font-body); letter-spacing: 0.04em; text-transform: uppercase; color: #fff;
+  background: #2b2b31; border: none; border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.45); }
+.pill[aria-pressed="true"] { background: #1e6fd6; }
+.pill.green { background: #2f9d43; }
+.controls .grow { flex: 1; }
+button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #ffd23b; outline-offset: 2px; }
+/* Ficha: tela de LCD. */
+.lcd { background: var(--lcd); color: var(--lcd-ink); border-radius: 10px; padding: 14px 16px;
+  box-shadow: inset 0 0 0 3px #4d6440, inset 0 3px 10px rgba(0, 0, 0, 0.25); font-family: var(--font-lcd); font-size: 20px; }
+.lcd .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.lcd .no { color: var(--lcd-dim); }
+.lcd h2 { margin: 0; font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: 0.02em; }
+.lcd .form { font-family: var(--font-display); font-size: 15px; padding: 1px 8px; border: 2px solid var(--lcd-ink); border-radius: 6px; }
+.lcd .kind { color: var(--lcd-dim); font-size: 17px; margin-top: 2px; }
+.types { display: flex; gap: 6px; margin: 10px 0 4px; flex-wrap: wrap; align-items: center; }
+.type { font: 700 12px var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: #fff;
+  padding: 4px 10px; border-radius: 6px; text-shadow: 0 1px 0 rgba(0,0,0,0.35); box-shadow: inset 0 -2px 0 rgba(0,0,0,0.25); }
+.lcd .grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 6px 18px; margin-top: 8px; }
+.stats { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 2px 8px; align-items: center; }
+.stats .bar { height: 9px; background: rgba(31, 51, 23, 0.18); border-radius: 2px; overflow: hidden; }
+.stats .bar i { display: block; height: 100%; background: var(--lcd-ink); }
+.stats .v { text-align: right; font-variant-numeric: tabular-nums; }
+.lcd .label { color: var(--lcd-dim); font-size: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+.lcd ul { list-style: none; margin: 0; padding: 0; }
+.lcd .hidden-ab { color: var(--lcd-dim); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip { font: 18px var(--font-lcd); background: transparent; color: var(--lcd-ink); border: 2px solid var(--lcd-ink);
+  border-radius: 6px; padding: 0 8px; cursor: pointer; }
+.chip.original { border-style: dashed; color: var(--lcd-dim); border-color: var(--lcd-dim); }
+.chip[aria-pressed="true"] { background: var(--lcd-ink); color: var(--lcd); }
+/* Dados de dev: fechados, abrem com um clique. */
+.dev { margin-top: 12px; border-top: 2px dashed var(--lcd-dim); padding-top: 8px; }
+.dev summary { cursor: pointer; color: var(--lcd-dim); text-transform: uppercase; letter-spacing: 0.06em; font-size: 17px; }
+.dev[open] summary { color: var(--lcd-ink); }
+.dev dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; margin: 8px 0 0; font-size: 17px; }
+.dev dt { color: var(--lcd-dim); }
+.dev dd { margin: 0; overflow-wrap: anywhere; }
+.dev .copy { font: 16px var(--font-lcd); border: 2px solid var(--lcd-ink); background: transparent; color: var(--lcd-ink);
+  border-radius: 6px; cursor: pointer; padding: 0 8px; margin-left: 6px; }
+/* Lista das formas. */
+.listwrap { background: #23262c; border-radius: 10px; padding: 8px; flex: 1; min-height: 0;
+  box-shadow: inset 0 0 0 3px #111317; display: flex; flex-direction: column; }
+.search { padding: 4px 4px 8px; display: flex; }
+.search input { flex: 1; min-width: 0; font: 18px var(--font-lcd); background: #111317; color: #d8f0ff; border: none;
+  border-radius: 6px; padding: 6px 10px; }
+.list { overflow-y: auto; max-height: 380px; display: flex; flex-direction: column; gap: 4px; padding-right: 4px; }
+.row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: left;
+  width: 100%; border: none; border-radius: 8px; padding: 6px 10px; cursor: pointer; background: #2f333b; color: #e9eef5;
+  font: 15px var(--font-body); }
+.row:hover { background: #3a3f48; }
+.row .num { font-family: var(--font-lcd); font-size: 18px; color: #8fa3b8; }
+.row .nm { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .nm small { font-weight: 400; color: #b6c2d1; margin-left: 6px; }
+.row .dots { display: flex; gap: 4px; }
+.row .dots i { width: 11px; height: 11px; border-radius: 50%; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.3); }
+.row[aria-current="true"] { background: #1e6fd6; }
+.row[aria-current="true"] .num, .row[aria-current="true"] small { color: #dbe9ff; }
+.foot { color: #ffe4e6; font-size: 12px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.foot a { color: #fff; }
+@media (max-width: 900px) {
+  .dex { grid-template-columns: minmax(0, 1fr); filter: none; }
+  .hinge { display: none; }
+  .half { border-radius: 18px; }
+  .left { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; border-radius: 0 0 18px 18px; padding: 10px 12px;
+    gap: 8px; margin: -20px calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 0;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
+  .right { margin-top: 14px; }
+  .lens { width: 34px; height: 34px; border-width: 3px; }
+  .leds .led { width: 10px; height: 10px; }
+  .brand h1 { font-size: 18px; } .brand p { display: none; }
+  .bezel { padding: 8px 8px 6px; border-radius: 10px 10px 10px 24px; }
+  .bezel-top, .bezel-foot { display: none; }
+  .stage { height: 34vh; min-height: 220px; }
+  .pad { grid-template-columns: repeat(3, 22px); grid-template-rows: repeat(3, 22px); }
+  .pill { padding: 6px 10px; font-size: 11px; }
+  .lcd .grid { grid-template-columns: minmax(0, 1fr); }
+  .list { max-height: none; overflow: visible; }
+}
+</style>
+
+<div class="dex">
+  <section class="half left" aria-label="Visualizador">
+    <div class="top">
+      <span class="lens" aria-hidden="true"></span>
+      <span class="leds" aria-hidden="true"><i class="led r"></i><i class="led y"></i><i class="led g"></i></span>
+      <div class="brand"><h1>Pokédex</h1><p id="subtitle"></p></div>
+    </div>
+    <div class="bezel">
+      <div class="bezel-top" aria-hidden="true"><span></span><span></span></div>
+      <div class="stage" id="stage">
+        <canvas id="view" aria-label="Modelo 3D do Pokémon"></canvas>
+        <div class="now" id="now" aria-live="polite"></div>
+      </div>
+      <div class="bezel-foot" aria-hidden="true"><span class="power"></span><span class="speaker"><i></i><i></i><i></i></span></div>
+    </div>
+    <div class="controls">
+      <div class="pad" role="group" aria-label="Navegar">
+        <button class="u" id="prev" aria-label="Pokémon anterior">▲</button>
+        <button class="l" id="vprev" aria-label="Variação anterior">◀</button>
+        <span class="c"></span>
+        <button class="r" id="vnext" aria-label="Próxima variação">▶</button>
+        <button class="d" id="next" aria-label="Próximo Pokémon">▼</button>
+      </div>
+      <span class="grow"></span>
+      <button class="pill" id="spin" aria-pressed="true">Girar</button>
+      <button class="pill" id="dark" aria-pressed="false">Escuro</button>
+      <button class="pill green" id="reset">Centralizar</button>
+    </div>
+  </section>
+  <div class="hinge" aria-hidden="true"></div>
+  <section class="half right" aria-label="Ficha">
+    <div class="lcd" id="card"></div>
+    <div class="listwrap">
+      <div class="search"><input id="filter" type="search" placeholder="Buscar nome, forma, tipo ou número" aria-label="Buscar"></div>
+      <nav class="list" id="list" aria-label="Formas"></nav>
+    </div>
+    <div class="foot"><span>Arraste para girar · roda ou pinça para zoom · botão direito para mover · setas trocam</span><span id="repo"></span></div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const DATA = /*DATA*/null;
+const TYPE_COLORS = { normal: "#9a9a7a", fire: "#ee7a30", water: "#5585e8", electric: "#e8bd1c", grass: "#5fb53a",
+  ice: "#5cc4c0", fighting: "#c22e28", poison: "#a33ea1", ground: "#d2a64a", flying: "#8f78e8", psychic: "#f2557f",
+  bug: "#93a81a", rock: "#b09a36", ghost: "#735797", dragon: "#6f35fc", dark: "#5c4636", steel: "#9a9ab8", fairy: "#d576a6" };
+
+// ---------- Modelo Bedrock -> three.js ----------
+// Espaço do modelo como o Java do Minecraft (x, -y, z) com as caixas e UVs do ModelPart.Cube; a raiz desvira com
+// escala (-1, -1, 1), como o renderizador de entidades faz.
+const rad = d => d * Math.PI / 180;
+const texCache = {};
+function texture(id) {
+  if (!texCache[id]) {
+    const t = new THREE.TextureLoader().load(DATA.textures[id], () => render());
+    t.magFilter = THREE.NearestFilter; t.minFilter = THREE.NearestFilter; t.generateMipmaps = false;
+    t.flipY = false; t.encoding = THREE.sRGBEncoding;
+    texCache[id] = t;
+  }
+  return texCache[id];
+}
+
+function boxGeometry(min, max, uv, size, mirror, tw, th, perFace) {
+  let [x0, y0, z0] = min, [x1, y1, z1] = max;
+  if (mirror) [x0, x1] = [x1, x0];
+  const v = [[x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0], [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]];
+  const [w, h, d] = size;
+  const u = uv ? uv[0] : 0, vv = uv ? uv[1] : 0;
+  const U = [u, u + d, u + d + w, u + d + w + w, u + d + w + d, u + d + w + d + w];
+  const V = [vv, vv + d, vv + d + h];
+  const faces = [
+    [[5, 4, 0, 1], U[1], V[0], U[2], V[1], "up"],
+    [[2, 3, 7, 6], U[2], V[1], U[3], V[0], "down"],
+    [[0, 4, 7, 3], U[0], V[1], U[1], V[2], "east"],
+    [[1, 0, 3, 2], U[1], V[1], U[2], V[2], "north"],
+    [[5, 1, 2, 6], U[2], V[1], U[4], V[2], "west"],
+    [[4, 5, 6, 7], U[4], V[1], U[5], V[2], "south"],
+  ];
+  const pos = [], uvs = [], idx = [];
+  for (const [ids, a1, b1, a2, b2, name] of faces) {
+    let [u1, v1, u2, v2] = [a1, b1, a2, b2];
+    if (perFace) {
+      const f = perFace[name];
+      if (!f) continue;
+      [u1, v1, u2, v2] = [f.uv[0], f.uv[1], f.uv[0] + f.uv_size[0], f.uv[1] + f.uv_size[1]];
+    }
+    let quad = ids.map(i => v[i]);
+    let quv = [[u2, v1], [u1, v1], [u1, v2], [u2, v2]];
+    if (mirror) { quad = quad.reverse(); quv = quv.reverse(); }
+    const base = pos.length / 3;
+    quad.forEach((p, i) => { pos.push(...p); uvs.push(quv[i][0] / tw, quv[i][1] / th); });
+    idx.push(base, base + 1, base + 2, base, base + 2, base + 3);
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
+  g.setIndex(idx);
+  g.computeVertexNormals();
+  return g;
+}
+
+function buildModel(model, materials) {
+  const root = new THREE.Group();
+  root.scale.set(-1, -1, 1);
+  const groups = {}, pivots = {};
+  for (const b of model.bones) {
+    const g = new THREE.Group();
+    const p = b.pivot || [0, 0, 0];
+    pivots[b.name] = [p[0], -p[1], p[2]];
+    const r = b.rotation || [0, 0, 0];
+    g.rotation.set(rad(r[0]), rad(r[1]), rad(r[2]), "ZYX");
+    groups[b.name] = g;
+  }
+  for (const b of model.bones) {
+    const g = groups[b.name], pj = pivots[b.name];
+    const parentPivot = b.parent && pivots[b.parent] ? pivots[b.parent] : [0, 0, 0];
+    g.position.set(pj[0] - parentPivot[0], pj[1] - parentPivot[1], pj[2] - parentPivot[2]);
+    (b.parent && groups[b.parent] ? groups[b.parent] : root).add(g);
+    for (const c of b.cubes || []) {
+      const [ox, oy, oz] = c.origin, [w, h, d] = c.size, inf = c.inflate || 0;
+      let holder = g, hp = pj;
+      if (c.rotation) {
+        const cp = c.pivot || [0, 0, 0], cpj = [cp[0], -cp[1], cp[2]];
+        holder = new THREE.Group();
+        holder.position.set(cpj[0] - pj[0], cpj[1] - pj[1], cpj[2] - pj[2]);
+        holder.rotation.set(rad(c.rotation[0]), rad(c.rotation[1]), rad(c.rotation[2]), "ZYX");
+        g.add(holder); hp = cpj;
+      }
+      const min = [ox - inf - hp[0], -(oy + h) - inf - hp[1], oz - inf - hp[2]];
+      const max = [ox + w + inf - hp[0], -oy + inf - hp[1], oz + d + inf - hp[2]];
+      const perFace = c.uv && !Array.isArray(c.uv) ? c.uv : null;
+      const geo = boxGeometry(min, max, Array.isArray(c.uv) ? c.uv : null, [w, h, d],
+        c.mirror ?? b.mirror ?? false, model.w, model.h, perFace);
+      for (const m of materials) { const mesh = new THREE.Mesh(geo, m); mesh.renderOrder = m._order || 0; holder.add(mesh); }
+    }
+  }
+  return root;
+}
+
+// ---------- Cena ----------
+const canvas = document.getElementById("view"), stage = document.getElementById("stage");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 2000);
+const ambient = new THREE.AmbientLight(0xffffff, 0.72);
+const sun = new THREE.DirectionalLight(0xffffff, 0.45);
+sun.position.set(-0.6, 1, 0.8);
+scene.add(ambient, sun);
+
+let model = null, animated = [], current = { group: null, entry: null };
+const view = { yaw: 0.6, pitch: 0.25, dist: 60, target: new THREE.Vector3(), radius: 30, panX: 0, panY: 0 };
+let spinning = true;
+
+function fit() {
+  const sphere = new THREE.Box3().setFromObject(model).getBoundingSphere(new THREE.Sphere());
+  view.target.copy(sphere.center); view.radius = sphere.radius || 10;
+  view.dist = view.radius / Math.sin(rad(camera.fov / 2)) * 0.95;
+  view.panX = view.panY = 0;
+}
+
+function show(group, entry) {
+  current = { group, entry };
+  if (model) scene.remove(model);
+  // Base opaca; depois as camadas: comuns (por cima, recortadas), translúcidas (gelatina) e as que brilham (sem luz).
+  const mats = [new THREE.MeshLambertMaterial({ map: texture(entry.texture), alphaTest: 0.1 })];
+  animated = [];
+  for (const layer of entry.layers) {
+    const frames = layer.frames.map(texture);
+    const over = { map: frames[0], polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 };
+    let mat;
+    if (layer.emissive) mat = new THREE.MeshBasicMaterial({ ...over, transparent: true, alphaTest: 0.02, depthWrite: false });
+    else if (layer.translucent) mat = new THREE.MeshLambertMaterial({ ...over, transparent: true, alphaTest: 0.02, depthWrite: false });
+    else mat = new THREE.MeshLambertMaterial({ ...over, alphaTest: 0.1 });
+    mat._order = layer.emissive ? 2 : layer.translucent ? 1 : 0;
+    mats.push(mat);
+    if (frames.length > 1 && layer.fps) animated.push({ mat, frames, fps: layer.fps, index: 0 });
+  }
+  model = buildModel(DATA.models[entry.model], mats);
+  scene.add(model);
+  fit();
+  card();
+  document.querySelectorAll(".row").forEach(r => r.setAttribute("aria-current", r._group === group));
+  render();
+}
+
+const pad4 = n => String(n).padStart(4, "0");
+function spawnCommand(group, entry) {
+  if (entry.original) return "";
+  const parts = [group.id, group.regional ? group.formAspect : "aspect=" + group.formAspect];
+  for (const a of entry.aspects) {
+    if (a === "shiny") parts.push("shiny");
+    else if (a !== "school-form" && a !== group.formAspect) parts.push("aspect=" + a);
+  }
+  return "/pokespawn " + parts.join(" ");
+}
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+let devOpen = false;
+function card() {
+  const { group, entry } = current;
+  const box = document.getElementById("card");
+  box.innerHTML = "";
+  // Informações do Pokémon: número, nome, forma, tipos, status e habilidades.
+  const head = el("div", "head");
+  head.append(el("span", "no", "No." + pad4(group.dex)), el("h2", null, group.species), el("span", "form", group.form));
+  box.append(head);
+  box.append(el("div", "kind", group.regional ? "Forma regional" : "Variação visual (mesmos dados da espécie)"));
+  const types = el("div", "types");
+  for (const t of group.types) { const s = el("span", "type", t.name); s.style.background = TYPE_COLORS[t.id] || "#777"; types.append(s); }
+  box.append(types);
+  const grid = el("div", "grid");
+  const stats = el("div", "stats");
+  let total = 0;
+  for (const s of group.stats) {
+    total += s.value;
+    const bar = el("span", "bar"); const fill = el("i"); fill.style.width = Math.min(100, s.value / 1.8) + "%"; bar.append(fill);
+    stats.append(el("span", "label", s.name), el("span", "v", s.value), bar);
+  }
+  stats.append(el("span", "label", "Total"), el("span", "v", total), el("span"));
+  const abil = el("div");
+  abil.append(el("div", "label", "Habilidades"));
+  const ul = el("ul");
+  for (const a of group.abilities) ul.append(el("li", a.hidden ? "hidden-ab" : null, a.name + (a.hidden ? " (oculta)" : "")));
+  abil.append(ul);
+  grid.append(stats, abil);
+  box.append(grid);
+  // Variações.
+  const chips = el("div", "chips");
+  group.entries.forEach(e => {
+    const b = el("button", "chip" + (e.original ? " original" : ""), e.name);
+    b.setAttribute("aria-pressed", e === entry);
+    b.addEventListener("click", () => show(group, e));
+    chips.append(b);
+  });
+  box.append(chips);
+  // Dados de dev: fechados, abrem com um clique (e ficam abertos ao trocar de Pokémon).
+  const dev = el("details", "dev");
+  dev.open = devOpen;
+  dev.addEventListener("toggle", () => { devOpen = dev.open; });
+  dev.append(el("summary", null, "Dados de dev"));
+  const dl = el("dl");
+  const row = (k, v, extra) => { const dd = el("dd", null, v); if (extra) dd.append(extra); dl.append(el("dt", null, k), dd); };
+  row("Aspects", entry.aspects.join(", ") || "nenhum");
+  row("Modelo", entry.model);
+  row("Textura", entry.texture);
+  for (const layer of entry.layers) {
+    const kind = layer.emissive ? "Brilho" : layer.translucent ? "Translúcida" : "Camada";
+    row(kind, layer.frames.length > 1 ? `${layer.frames[0]} (+${layer.frames.length - 1} quadros, ${layer.fps} fps)` : layer.frames[0]);
+  }
+  const cmd = spawnCommand(group, entry);
+  if (cmd) {
+    const btn = el("button", "copy", "Copiar");
+    btn.addEventListener("click", () => navigator.clipboard.writeText(cmd).then(() => { btn.textContent = "Copiado"; },
+      () => { btn.textContent = "Selecione o texto"; }));
+    row("Comando", cmd + " ", btn);
+  }
+  dev.append(dl);
+  box.append(dev);
+  document.getElementById("now").textContent = `${group.species} ${group.form} · ${entry.name}`;
+}
+
+function render() {
+  if (!model) return;
+  const w = stage.clientWidth, h = stage.clientHeight;
+  if (canvas.width !== Math.floor(w * renderer.getPixelRatio()) || canvas.height !== Math.floor(h * renderer.getPixelRatio())) {
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  const right = new THREE.Vector3(Math.cos(view.yaw), 0, -Math.sin(view.yaw));
+  const center = view.target.clone().add(right.multiplyScalar(view.panX)).add(new THREE.Vector3(0, view.panY, 0));
+  camera.position.set(
+    center.x + view.dist * Math.cos(view.pitch) * Math.sin(view.yaw),
+    center.y + view.dist * Math.sin(view.pitch),
+    center.z + view.dist * Math.cos(view.pitch) * Math.cos(view.yaw));
+  camera.lookAt(center);
+  renderer.render(scene, camera);
+}
+
+let last = performance.now(), clock = 0;
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  spinning = false; document.getElementById("spin").setAttribute("aria-pressed", "false");
+}
+function loop(now) {
+  const dt = (now - last) / 1000; last = now; clock += dt;
+  if (spinning) view.yaw += dt * 0.5;
+  for (const a of animated) {
+    const i = Math.floor(clock * a.fps) % a.frames.length;
+    if (i !== a.index) { a.index = i; a.mat.map = a.frames[i]; a.mat.needsUpdate = true; }
+  }
+  render();
+  requestAnimationFrame(loop);
+}
+
+// ---------- Controles ----------
+let drag = null;
+const pointers = new Map();
+canvas.addEventListener("contextmenu", e => e.preventDefault());
+canvas.addEventListener("pointerdown", e => {
+  canvas.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  drag = { pan: e.button === 2 || e.shiftKey };
+});
+canvas.addEventListener("pointermove", e => {
+  if (!pointers.has(e.pointerId)) return;
+  const prev = pointers.get(e.pointerId);
+  if (pointers.size === 2) {
+    const other = [...pointers.entries()].find(([id]) => id !== e.pointerId)[1];
+    const before = Math.hypot(prev.x - other.x, prev.y - other.y), after = Math.hypot(e.clientX - other.x, e.clientY - other.y);
+    if (before > 0) view.dist = Math.max(view.radius * 0.6, Math.min(view.radius * 12, view.dist * before / after));
+  } else if (drag) {
+    const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
+    if (drag.pan) { const k = view.dist / stage.clientHeight; view.panX -= dx * k; view.panY += dy * k; }
+    else { view.yaw -= dx * 0.01; view.pitch = Math.max(-1.4, Math.min(1.4, view.pitch + dy * 0.01)); }
+  }
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+});
+const release = e => { pointers.delete(e.pointerId); if (!pointers.size) drag = null; };
+canvas.addEventListener("pointerup", release);
+canvas.addEventListener("pointercancel", release);
+canvas.addEventListener("wheel", e => {
+  e.preventDefault();
+  view.dist = Math.max(view.radius * 0.6, Math.min(view.radius * 12, view.dist * Math.exp(e.deltaY * 0.001)));
+}, { passive: false });
+
+const toggle = (id, fn) => {
+  const b = document.getElementById(id);
+  b.addEventListener("click", () => { const on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", on); fn(on); });
+};
+toggle("spin", on => { spinning = on; });
+toggle("dark", on => {
+  ambient.intensity = on ? 0.12 : 0.72; sun.intensity = on ? 0.06 : 0.45;
+  stage.style.background = on ? "#030405" : "";
+});
+document.getElementById("reset").addEventListener("click", () => { if (model) fit(); });
+
+const visibleGroups = () => [...document.querySelectorAll(".row")].filter(r => !r.hidden).map(r => r._group);
+function step(dir) {
+  const list = visibleGroups(); if (!list.length) return;
+  const i = list.indexOf(current.group);
+  const g = list[((i < 0 ? 0 : i) + dir + list.length) % list.length];
+  show(g, g.entries.find(e => !e.original) || g.entries[0]);
+}
+function vstep(dir) {
+  const es = current.group.entries, i = es.indexOf(current.entry);
+  show(current.group, es[(i + dir + es.length) % es.length]);
+}
+document.getElementById("prev").addEventListener("click", () => step(-1));
+document.getElementById("next").addEventListener("click", () => step(1));
+document.getElementById("vprev").addEventListener("click", () => vstep(-1));
+document.getElementById("vnext").addEventListener("click", () => vstep(1));
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") return;
+  const keys = { ArrowUp: () => step(-1), ArrowDown: () => step(1), ArrowLeft: () => vstep(-1), ArrowRight: () => vstep(1) };
+  if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
+});
+
+// ---------- Lista ----------
+document.getElementById("subtitle").textContent = DATA.subtitle || DATA.title;
+if (DATA.repo) { const a = el("a", null, "Código no GitHub"); a.href = DATA.repo; document.getElementById("repo").append(a); }
+const list = document.getElementById("list");
+for (const group of DATA.groups) {
+  const row = el("button", "row");
+  row._group = group;
+  row.setAttribute("aria-current", "false");
+  const nm = el("span", "nm", group.species); nm.append(el("small", null, group.form));
+  const dots = el("span", "dots");
+  for (const t of group.types) { const d = el("i"); d.style.background = TYPE_COLORS[t.id] || "#777"; d.title = t.name; dots.append(d); }
+  row.append(el("span", "num", "No." + pad4(group.dex)), nm, dots);
+  row.addEventListener("click", () => show(group, group.entries.find(e => !e.original) || group.entries[0]));
+  list.append(row);
+}
+document.getElementById("filter").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll(".row").forEach(r => {
+    const g = r._group;
+    r.hidden = !!q && !(g.species + " " + g.form + " " + g.types.map(t => t.name).join(" ") + " " + g.dex).toLowerCase().includes(q);
+  });
+});
+window.addEventListener("resize", render);
+const first = DATA.groups[0];
+show(first, first.entries.find(e => !e.original) || first.entries[0]);
+requestAnimationFrame(loop);
+</script>

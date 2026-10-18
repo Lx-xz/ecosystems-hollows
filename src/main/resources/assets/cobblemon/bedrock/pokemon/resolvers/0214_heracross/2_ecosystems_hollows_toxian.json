@@ -1,0 +1,57 @@
+{
+  "species": "cobblemon:heracross",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "toxian"
+      ],
+      "model": "ecosystems_hollows:heracross_toxian.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian.png",
+      "layers": [
+        {
+          "name": "wings",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_wings.png"
+        },
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_emissive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "toxian",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny.png",
+      "layers": [
+        {
+          "name": "wings",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_wings.png"
+        },
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": {
+            "frames": [
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_0.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_1.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_2.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_3.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_4.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_5.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_6.png",
+              "ecosystems_hollows:textures/pokemon/heracross/heracross_toxian_shiny_glow_7.png"
+            ],
+            "fps": 8,
+            "loop": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "species": "cobblemon:magnemite",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "magnetian"
+      ],
+      "model": "ecosystems_hollows:magnemite_magnetian.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/magnemite/magnemite_magnetian.png"
+    },
+    {
+      "aspects": [
+        "magnetian",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/magnemite/magnemite_magnetian_shiny.png",
+      "layers": [
+        {
+          "name": "magnets",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/magnemite/magnemite_magnetian_shiny_magnets.png"
+        }
+      ]
+    }
+  ]
+}

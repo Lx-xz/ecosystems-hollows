@@ -1,0 +1,18 @@
+{
+  "type": "choice",
+  "keys": [
+    "gummy"
+  ],
+  "needsKey": false,
+  "default": "random",
+  "choices": [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple"
+  ],
+  "isAspect": true,
+  "aspectFormat": "candyan_{{choice}}"
+}

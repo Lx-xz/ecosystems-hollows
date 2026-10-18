@@ -47,6 +47,10 @@ POKEMON = {
     "bewear": ("0760_bewear", GUMMY_COLORS, True, [(0, 63)]),
 }
 
+# Peças que somem na forma Candyan (ficam transparentes): a etiqueta de pelúcia embaixo do rabo do Stufful faz
+# sentido num bicho de pelúcia, não numa bala de goma.
+HIDDEN_BONES = {"stufful": ("tag",)}
+
 # Cubos que encostam numa face do corpo translúcido: a face de trás deles fica no mesmo plano da face do corpo e,
 # vista através da gelatina, as duas brigam (listras piscando). A face de trás precisa entrar um pouco no corpo.
 # O Cobblemon só aceita UV de caixa, e mudar o tamanho do cubo para um valor quebrado desalinharia a textura.
@@ -121,13 +125,62 @@ def smoothed_luma(src):
     return out
 
 
-def candy(texture, color, translucent, regions):
+def face_positions(geo, width, height):
+    """Para cada pixel da textura: (x e y dentro da face, largura e altura da face, canto da face na textura)."""
+    pos = {}
+    for bone in geo["bones"]:
+        for cube in bone.get("cubes", []):
+            uv = cube.get("uv")
+            if not isinstance(uv, list):
+                continue
+            for x0, y0, w, h in box_faces(uv, [round(v) for v in cube["size"]]):
+                for y in range(max(0, y0), min(height, y0 + h)):
+                    for x in range(max(0, x0), min(width, x0 + w)):
+                        pos[(x, y)] = (x - x0, y - y0, w, h, x0, y0)
+    return pos
+
+
+def noise(x, y, seed=0):
+    n = (x * 374761393 + y * 668265263 + seed * 2246822519) & 0xFFFFFFFF
+    n = ((n ^ (n >> 13)) * 1274126177) & 0xFFFFFFFF
+    return (n & 0xFFFF) / 0xFFFF
+
+
+def gummy_tones(color):
+    """Os tons da bala, do fundo escuro ao brilho, como nos Gummy Bears do Alex's Caves."""
+    return [tuple(int(c * k) for c in color) for k in (0.5, 0.66, 0.82)] + [tuple(color)] + [
+        tuple(int(c + (255 - c) * k) for c in color) for k in (0.28, 0.55, 0.8)]
+
+
+def gummy_pixel(tones, l, face):
+    """Tom e transparência de um pixel de bala de goma, no desenho dos Gummy Bears do Alex's Caves: cada face com a
+    borda mais clara e mais firme, o miolo manchado de bolhas mais escuras e mais densas, e alguns pontos de brilho;
+    tudo por cima da luz e da sombra do original (l, de 0 a 1)."""
+    fx, fy, fw, fh, x0, y0 = face
+    v = 0.3 + 0.35 * l + 0.08 * (noise(fx + x0, fy + y0, 1) - 0.5)
+    alpha = BODY_ALPHA
+    # A borda tem falhas (nem todo pixel dela clareia), para não virar uma moldura lisa.
+    rim = fw >= 3 and fh >= 3 and (fx in (0, fw - 1) or fy in (0, fh - 1)) and noise(fx + x0, fy + y0, 4) < 0.8
+    if rim:
+        v, alpha = max(v + 0.12, 0.5), 205
+    elif noise((fx + x0) // 2, (fy + y0) // 2, 2) < 0.32:
+        v, alpha = v - 0.2, 185          # bolha mais escura dentro da bala
+    elif noise(fx + x0, fy + y0, 3) < 0.025:
+        v, alpha = 0.85, 225             # ponto de brilho
+    t = max(0.0, min(1.0, v))
+    return tones[min(len(tones) - 1, int(t * (len(tones) - 1) + 0.5))], alpha
+
+
+def candy(texture, color, translucent, regions, faces=None):
     """Devolve (base, camada). Para os opacos (chiclete), a camada é None e tudo vai na base."""
     src = texture.convert("RGBA")
     base = Image.new("RGBA", src.size, (0, 0, 0, 0))
     layer = Image.new("RGBA", src.size, (0, 0, 0, 0))
     sp, bp, lp = src.load(), base.load(), layer.load()
     smooth = smoothed_luma(src)
+    tones = gummy_tones(color)
+    body = [l for (x, y), l in smooth.items() if regions[y][x] != FACE]
+    lo, hi = (min(body), max(body)) if body else (0.0, 1.0)
     for y in range(src.height):
         for x in range(src.width):
             if sp[x, y][3] == 0:
@@ -144,14 +197,15 @@ def candy(texture, color, translucent, regions):
                     rgb = tuple(int(c * 0.85) for c in color)
                 bp[x, y] = rgb + (255,)
                 continue
-            # Corpo e planos: a luz do original deixa mais claro ou mais escuro que a cor base.
+            # Corpo e planos: a luz do original (esticada de 0 a 1) com o desenho da bala por cima.
             l = luma(sp[x, y]) if region == FLAT else smooth[(x, y)]
-            k = 0.72 + 0.45 * l
-            rgb = tuple(min(255, int(c * k + 30 * max(0.0, l - 0.6))) for c in color)
+            l = (l - lo) / (hi - lo) if hi > lo else 0.5
+            face = (faces or {}).get((x, y), (0, 0, 1, 1, x, y))
+            rgb, alpha = gummy_pixel(tones, l, face)
             if not translucent or region == FLAT:
                 bp[x, y] = rgb + (255,)
             else:
-                lp[x, y] = rgb + (BODY_ALPHA,)
+                lp[x, y] = rgb + (alpha,)
     return base, (layer if translucent else None)
 
 
@@ -218,11 +272,20 @@ def main():
         texture = Image.open(BytesIO(z.read(f"assets/cobblemon/textures/pokemon/{folder}/{species}.png")))
         geo = json.loads(z.read(f"assets/cobblemon/bedrock/pokemon/models/{folder}/{species}.geo.json"))["minecraft:geometry"][0]
         regions = region_map(geo, texture.width, texture.height, [tuple(uv) for uv in extra_face_uvs])
+        faces = face_positions(geo, texture.width, texture.height)
+        hidden = bone_colors(geo, texture.width, texture.height, {b: True for b in HIDDEN_BONES.get(species, ())})
         (out_dir / species).mkdir(exist_ok=True)
         variants = []
         shiny = {f"{name}_shiny": GUMMY_SHINY[name] for name in colors if colors is GUMMY_COLORS}
         for name, color in {**colors, **shiny}.items():
-            base, layer = candy(texture, color, translucent, regions)
+            base, layer = candy(texture, color, translucent, regions, faces)
+            for img in (base, layer):
+                if img is not None:
+                    px = img.load()
+                    for y in range(img.height):
+                        for x in range(img.width):
+                            if hidden[y][x]:
+                                px[x, y] = (0, 0, 0, 0)
             if layer is None:
                 base.save(out_dir / species / f"{species}_candyan_{name}.png")
                 variants.append(base)

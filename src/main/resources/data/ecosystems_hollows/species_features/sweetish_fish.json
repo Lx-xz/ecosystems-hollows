@@ -1,0 +1,17 @@
+{
+  "type": "choice",
+  "keys": [
+    "sweetish_fish"
+  ],
+  "needsKey": false,
+  "default": "random",
+  "choices": [
+    "red",
+    "green",
+    "yellow",
+    "blue",
+    "pink"
+  ],
+  "isAspect": true,
+  "aspectFormat": "candyan_{{choice}}"
+}

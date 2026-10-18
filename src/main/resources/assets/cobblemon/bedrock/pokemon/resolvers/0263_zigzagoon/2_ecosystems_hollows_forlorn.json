@@ -1,0 +1,14 @@
+{
+  "species": "cobblemon:zigzagoon",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "forlorn"
+      ],
+      "poser": "cobblemon:zigzagoon_galarian",
+      "model": "ecosystems_hollows:zigzagoon_forlorn.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/zigzagoon/zigzagoon_forlorn.png"
+    }
+  ]
+}

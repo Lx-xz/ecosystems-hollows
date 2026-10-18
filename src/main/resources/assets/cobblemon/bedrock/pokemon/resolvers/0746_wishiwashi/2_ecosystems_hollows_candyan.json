@@ -1,0 +1,390 @@
+{
+  "species": "cobblemon:wishiwashi",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "candyan"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_red_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_red.png"
+        }
+      ],
+      "model": "ecosystems_hollows:wishiwashi_candyan.geo"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_red"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_red_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_red.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_green"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_green_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_green.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_yellow"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_yellow_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_yellow.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_blue"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_blue_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_blue.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_pink"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_pink_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_pink.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_red"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_red_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_red_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_green"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_green_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_green_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_yellow"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_yellow_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_yellow_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_blue"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_blue_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_blue_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_pink"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_pink_shiny_base.png",
+      "layers": [
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_solo_candyan_pink_shiny.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form"
+      ],
+      "model": "cobblemon:wishiwashi_school.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_red.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "candyan_red"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_red.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "candyan_green"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_green.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "candyan_yellow"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_yellow.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "candyan_blue"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_blue.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "candyan_pink"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_pink.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "shiny",
+        "candyan_red"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_red_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "shiny",
+        "candyan_green"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_green_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "shiny",
+        "candyan_yellow"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_yellow_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "shiny",
+        "candyan_blue"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_blue_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "school-form",
+        "shiny",
+        "candyan_pink"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_pink_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_school_candyan_emissive.png"
+        },
+        {
+          "name": "candyan",
+          "translucent": true,
+          "texture": "ecosystems_hollows:textures/pokemon/wishiwashi/wishiwashi_candyan_empty.png"
+        }
+      ]
+    }
+  ]
+}

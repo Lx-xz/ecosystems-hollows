@@ -6,8 +6,8 @@
   "neededUninstalledMods": [],
   "spawns": [
     {
-      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_candy_corn",
-      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_candy_corn",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-form=candyan-candyan-candicorn=candy_corn",
+      "pokemon": "ponyta form=candyan aspect=candyan candicorn=candy_corn",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -31,8 +31,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_peppermint",
-      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_peppermint",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-form=candyan-candyan-candicorn=peppermint",
+      "pokemon": "ponyta form=candyan aspect=candyan candicorn=peppermint",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -56,8 +56,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_mint_chip",
-      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_mint_chip",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-form=candyan-candyan-candicorn=mint_chip",
+      "pokemon": "ponyta form=candyan aspect=candyan candicorn=mint_chip",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -81,8 +81,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_cherry_ice",
-      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_cherry_ice",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-form=candyan-candyan-candicorn=cherry_ice",
+      "pokemon": "ponyta form=candyan aspect=candyan candicorn=cherry_ice",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -106,8 +106,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-ponyta-galarian-candyan-candyan_cotton_candy",
-      "pokemon": "ponyta galarian aspect=candyan aspect=candyan_cotton_candy",
+      "id": "ecosystems_hollows-candy_cavity-ponyta-form=candyan-candyan-candicorn=cotton_candy",
+      "pokemon": "ponyta form=candyan aspect=candyan candicorn=cotton_candy",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -131,8 +131,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_candy_corn",
-      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_candy_corn",
+      "id": "ecosystems_hollows-candy_cavity-rapidash-form=candyan-candyan-candicorn=candy_corn",
+      "pokemon": "rapidash form=candyan aspect=candyan candicorn=candy_corn",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "rare",
@@ -156,8 +156,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_peppermint",
-      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_peppermint",
+      "id": "ecosystems_hollows-candy_cavity-rapidash-form=candyan-candyan-candicorn=peppermint",
+      "pokemon": "rapidash form=candyan aspect=candyan candicorn=peppermint",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "rare",
@@ -181,8 +181,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_mint_chip",
-      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_mint_chip",
+      "id": "ecosystems_hollows-candy_cavity-rapidash-form=candyan-candyan-candicorn=mint_chip",
+      "pokemon": "rapidash form=candyan aspect=candyan candicorn=mint_chip",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "rare",
@@ -206,8 +206,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_cherry_ice",
-      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_cherry_ice",
+      "id": "ecosystems_hollows-candy_cavity-rapidash-form=candyan-candyan-candicorn=cherry_ice",
+      "pokemon": "rapidash form=candyan aspect=candyan candicorn=cherry_ice",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "rare",
@@ -231,8 +231,8 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-rapidash-galarian-candyan-candyan_cotton_candy",
-      "pokemon": "rapidash galarian aspect=candyan aspect=candyan_cotton_candy",
+      "id": "ecosystems_hollows-candy_cavity-rapidash-form=candyan-candyan-candicorn=cotton_candy",
+      "pokemon": "rapidash form=candyan aspect=candyan candicorn=cotton_candy",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "rare",
@@ -256,13 +256,38 @@
       }
     },
     {
-      "id": "ecosystems_hollows-candy_cavity-magikarp",
-      "pokemon": "magikarp",
+      "id": "ecosystems_hollows-candy_cavity-rayquaza-form=candyan-candyan-uncatchable",
+      "pokemon": "rayquaza form=candyan aspect=candyan uncatchable",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "ultra-rare",
+      "level": "60-70",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweet_tooth",
+            "percentage": 100.0,
+            "quantityRange": "2-4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=red",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=red",
       "type": "pokemon",
       "spawnablePositionType": "submerged",
       "bucket": "common",
       "level": "5-20",
-      "weight": 6.0,
+      "weight": 3.0,
       "condition": {
         "canSeeSky": false,
         "biomes": [
@@ -270,27 +295,242 @@
         ]
       },
       "drops": {
-        "amount": 5,
+        "amount": 1,
         "entries": [
           {
             "item": "alexscaves:sweetish_fish_red",
-            "percentage": 12.0
-          },
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=green",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=green",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
           {
             "item": "alexscaves:sweetish_fish_green",
-            "percentage": 12.0
-          },
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=yellow",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=yellow",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
           {
             "item": "alexscaves:sweetish_fish_yellow",
-            "percentage": 12.0
-          },
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=blue",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=blue",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
           {
             "item": "alexscaves:sweetish_fish_blue",
-            "percentage": 12.0
-          },
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=pink",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=pink",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
           {
             "item": "alexscaves:sweetish_fish_pink",
-            "percentage": 12.0
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=red-soda",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=red",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ],
+        "fluid": "alexscaves:purple_soda"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetish_fish_red",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=green-soda",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=green",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ],
+        "fluid": "alexscaves:purple_soda"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetish_fish_green",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=yellow-soda",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=yellow",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ],
+        "fluid": "alexscaves:purple_soda"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetish_fish_yellow",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=blue-soda",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=blue",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ],
+        "fluid": "alexscaves:purple_soda"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetish_fish_blue",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-wishiwashi-form=candyan-candyan-sweetish_fish=pink-soda",
+      "pokemon": "wishiwashi form=candyan aspect=candyan sweetish_fish=pink",
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "common",
+      "level": "5-20",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ],
+        "fluid": "alexscaves:purple_soda"
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetish_fish_pink",
+            "percentage": 50.0,
+            "quantityRange": "1-2"
           }
         ]
       }
@@ -316,6 +556,372 @@
             "item": "alexscaves:caramel",
             "percentage": 60.0,
             "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-tangela-form=candyan-candyan",
+      "pokemon": "tangela form=candyan aspect=candyan",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "15-30",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:licoroot_vine",
+            "percentage": 60.0,
+            "quantityRange": "1-3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-tangrowth-form=candyan-candyan",
+      "pokemon": "tangrowth form=candyan aspect=candyan",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "33-50",
+      "weight": 0.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:licoroot_vine",
+            "percentage": 80.0,
+            "quantityRange": "2-4"
+          },
+          {
+            "item": "alexscaves:licoroot",
+            "percentage": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillite-form=candyan-candyan-ice_cream=vanilla",
+      "pokemon": "vanillite form=candyan aspect=candyan ice_cream=vanilla",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "12-28",
+      "weight": 1.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:vanilla_ice_cream_scoop",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillite-form=candyan-candyan-ice_cream=chocolate",
+      "pokemon": "vanillite form=candyan aspect=candyan ice_cream=chocolate",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "12-28",
+      "weight": 1.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:chocolate_ice_cream_scoop",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillite-form=candyan-candyan-ice_cream=sweetberry",
+      "pokemon": "vanillite form=candyan aspect=candyan ice_cream=sweetberry",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "12-28",
+      "weight": 1.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetberry_ice_cream_scoop",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillite-form=candyan-candyan-ice_cream=frostmint",
+      "pokemon": "vanillite form=candyan aspect=candyan ice_cream=frostmint",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "common",
+      "level": "12-28",
+      "weight": 1.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:vanilla_ice_cream_scoop",
+            "percentage": 50.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillish-form=candyan-candyan-ice_cream=vanilla",
+      "pokemon": "vanillish form=candyan aspect=candyan ice_cream=vanilla",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "35-45",
+      "weight": 0.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:vanilla_ice_cream_scoop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillish-form=candyan-candyan-ice_cream=chocolate",
+      "pokemon": "vanillish form=candyan aspect=candyan ice_cream=chocolate",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "35-45",
+      "weight": 0.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:chocolate_ice_cream_scoop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillish-form=candyan-candyan-ice_cream=sweetberry",
+      "pokemon": "vanillish form=candyan aspect=candyan ice_cream=sweetberry",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "35-45",
+      "weight": 0.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:sweetberry_ice_cream_scoop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanillish-form=candyan-candyan-ice_cream=frostmint",
+      "pokemon": "vanillish form=candyan aspect=candyan ice_cream=frostmint",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "35-45",
+      "weight": 0.5,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:vanilla_ice_cream_scoop",
+            "percentage": 60.0,
+            "quantityRange": "1-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanilluxe-form=candyan-candyan-ice_cream=vanilla",
+      "pokemon": "vanilluxe form=candyan aspect=candyan ice_cream=vanilla",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "47-55",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:vanilla_ice_cream_scoop",
+            "percentage": 70.0,
+            "quantityRange": "1-3"
+          },
+          {
+            "item": "alexscaves:sundae",
+            "percentage": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanilluxe-form=candyan-candyan-ice_cream=chocolate",
+      "pokemon": "vanilluxe form=candyan aspect=candyan ice_cream=chocolate",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "47-55",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:chocolate_ice_cream_scoop",
+            "percentage": 70.0,
+            "quantityRange": "1-3"
+          },
+          {
+            "item": "alexscaves:sundae",
+            "percentage": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanilluxe-form=candyan-candyan-ice_cream=sweetberry",
+      "pokemon": "vanilluxe form=candyan aspect=candyan ice_cream=sweetberry",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "47-55",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:sweetberry_ice_cream_scoop",
+            "percentage": 70.0,
+            "quantityRange": "1-3"
+          },
+          {
+            "item": "alexscaves:sundae",
+            "percentage": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-candy_cavity-vanilluxe-form=candyan-candyan-ice_cream=frostmint",
+      "pokemon": "vanilluxe form=candyan aspect=candyan ice_cream=frostmint",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "47-55",
+      "weight": 0.2,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:candy_cavity"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:vanilla_ice_cream_scoop",
+            "percentage": 70.0,
+            "quantityRange": "1-3"
+          },
+          {
+            "item": "alexscaves:sundae",
+            "percentage": 15.0
           }
         ]
       }

@@ -1,0 +1,14 @@
+{
+  "species": "cobblemon:noivern",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "forlorn"
+      ],
+      "model": "ecosystems_hollows:noivern_forlorn.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/noivern/noivern_forlorn.png",
+      "poser": "ecosystems_hollows:noivern_forlorn"
+    }
+  ]
+}

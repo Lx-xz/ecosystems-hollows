@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.luiz.ecosystemshollows.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EntityMixin",
+    "FluidStateMixin",
+    "StateDefinitionBuilderMixin",
+    "BlockMixin",
+    "BlockStateBaseMixin",
+    "BlockItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

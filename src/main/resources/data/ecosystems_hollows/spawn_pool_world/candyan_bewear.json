@@ -7,7 +7,7 @@
   "spawns": [
     {
       "id": "ecosystems_hollows-candyan-bewear-red",
-      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_red",
+      "pokemon": "bewear form=candyan aspect=candyan gummy=red",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-bewear-orange",
-      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_orange",
+      "pokemon": "bewear form=candyan aspect=candyan gummy=orange",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-bewear-yellow",
-      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_yellow",
+      "pokemon": "bewear form=candyan aspect=candyan gummy=yellow",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-bewear-green",
-      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_green",
+      "pokemon": "bewear form=candyan aspect=candyan gummy=green",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -107,7 +107,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-bewear-blue",
-      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_blue",
+      "pokemon": "bewear form=candyan aspect=candyan gummy=blue",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",
@@ -132,7 +132,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-bewear-purple",
-      "pokemon": "bewear form=candyan aspect=candyan aspect=candyan_purple",
+      "pokemon": "bewear form=candyan aspect=candyan gummy=purple",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "uncommon",

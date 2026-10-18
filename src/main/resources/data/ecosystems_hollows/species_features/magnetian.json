@@ -1,0 +1,8 @@
+{
+  "keys": [
+    "magnetian"
+  ],
+  "type": "flag",
+  "isAspect": true,
+  "default": false
+}

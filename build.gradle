@@ -66,6 +66,7 @@ dependencies {
     // Mods para testar no runClient (não vão dentro do jar do mod). Também vêm do Modrinth: -Ptest_mods=false desliga.
     if (project.test_mods.toBoolean()) {
         runtimeOnly 'maven.modrinth:effortless-building:YxnBXtLv' // 4.2+1.21.1: construir rápido (montar habitats)
+        runtimeOnly 'maven.modrinth:fusion-connected-textures:AYDaLPK8' // 1.3.16: texturas conectadas (Fusion)
     }
 }
 

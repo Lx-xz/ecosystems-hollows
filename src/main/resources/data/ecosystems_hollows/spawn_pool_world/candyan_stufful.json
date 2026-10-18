@@ -7,7 +7,7 @@
   "spawns": [
     {
       "id": "ecosystems_hollows-candyan-stufful-red",
-      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_red",
+      "pokemon": "stufful form=candyan aspect=candyan gummy=red",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-stufful-orange",
-      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_orange",
+      "pokemon": "stufful form=candyan aspect=candyan gummy=orange",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-stufful-yellow",
-      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_yellow",
+      "pokemon": "stufful form=candyan aspect=candyan gummy=yellow",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-stufful-green",
-      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_green",
+      "pokemon": "stufful form=candyan aspect=candyan gummy=green",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",
@@ -107,7 +107,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-stufful-blue",
-      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_blue",
+      "pokemon": "stufful form=candyan aspect=candyan gummy=blue",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",
@@ -132,7 +132,7 @@
     },
     {
       "id": "ecosystems_hollows-candyan-stufful-purple",
-      "pokemon": "stufful form=candyan aspect=candyan aspect=candyan_purple",
+      "pokemon": "stufful form=candyan aspect=candyan gummy=purple",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",

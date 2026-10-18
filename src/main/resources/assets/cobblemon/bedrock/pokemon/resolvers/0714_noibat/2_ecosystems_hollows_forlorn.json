@@ -1,0 +1,13 @@
+{
+  "species": "cobblemon:noibat",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "forlorn"
+      ],
+      "model": "ecosystems_hollows:noibat_forlorn.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/noibat/noibat_forlorn.png"
+    }
+  ]
+}

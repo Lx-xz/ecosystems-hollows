@@ -12,6 +12,9 @@ from pathlib import Path
 
 AC = "alexscaves:"
 FLAVORS = ["candy_corn", "peppermint", "mint_chip", "cherry_ice", "cotton_candy"]
+# Sabores dos sorvetes (Vanillite Candyan) e a bola de sorvete que cada um dá (o frostmint dá a de baunilha).
+SCOOPS = {"vanilla": "vanilla_ice_cream", "chocolate": "chocolate_ice_cream", "sweetberry": "sweetberry_ice_cream",
+          "frostmint": "vanilla_ice_cream"}
 
 
 def d(item, chance, qty="1"):
@@ -58,6 +61,9 @@ CAVES = {
             ("carvanha form=toxian aspect=toxian", "acid", "common", "18-30", 6, [d(AC + "radgill", 50)], "Radgill"),
             ("sharpedo form=toxian aspect=toxian", "acid", "rare", "30-45", 1, [d(AC + "radgill", 70, "1-2")], "Radgill"),
             ("carvanha form=toxian aspect=toxian", "submerged", "common", "18-30", 3, [d(AC + "radgill", 50)], "Radgill"),
+            # Heracross Toxian: a Gammaroach, a barata radioativa (tools/toxian_heracross.py).
+            ("heracross form=toxian aspect=toxian", "grounded", "uncommon", "20-40", 3,
+             [d(AC + "toxic_paste", 40)], "Gammaroach"),
         ],
     },
     "abyssal_chasm": {
@@ -79,27 +85,52 @@ CAVES = {
             ("venonat", "grounded", "common", "18-30", 5, [d(AC + "moth_dust", 50)], "Gloomoth"),
             ("venomoth", "grounded", "uncommon", "31-45", 2, [d(AC + "moth_dust", 70, "1-2")], "Gloomoth"),
             ("dustox", "grounded", "uncommon", "20-35", 2, [d(AC + "moth_dust", 60, "1-2")], "Gloomoth"),
-            ("zubat", "grounded", "common", "18-30", 8, [d(AC + "guano", 50, "1-2"), d(AC + "vesper_wing", 15)], "Vesper"),
-            ("golbat", "grounded", "uncommon", "22-40", 2, [d(AC + "guano", 60, "1-2"), d(AC + "vesper_wing", 30)], "Vesper"),
-            ("noibat", "grounded", "uncommon", "18-30", 3, [d(AC + "vesper_wing", 30), d(AC + "guano", 40)], "Vesper"),
-            ("diglett", "grounded", "common", "18-30", 6, [d(AC + "corrodent_teeth", 30), d("minecraft:coarse_dirt", 50, "1-2")], "Corrodent"),
-            ("dugtrio", "grounded", "rare", "26-45", 1, [d(AC + "corrodent_teeth", 60, "1-2")], "Corrodent"),
-            ("drilbur", "grounded", "uncommon", "18-30", 3, [d(AC + "corrodent_teeth", 40)], "Corrodent"),
+            # Noibat Forlorn: o Vesper, morcego cego que caça pelo som (tools/forlorn_noivern.py). O Noivern Forlorn (o
+            # Forsaken) não nasce solto: vem do ritual ou da evolução.
+            ("noibat form=forlorn aspect=forlorn", "grounded", "common", "18-35", 8,
+             [d(AC + "vesper_wing", 30), d(AC + "guano", 50, "1-2")], "Vesper"),
+            ("zubat", "grounded", "common", "18-30", 3, [d(AC + "guano", 50, "1-2")], "-"),
+            ("golbat", "grounded", "uncommon", "22-40", 1, [d(AC + "guano", 60, "1-2")], "-"),
+            # Zigzagoon e Linoone Forlorn: o Corrodent, rato-toupeira pelado e espinhento que rói pedra (tools/forlorn_zigzagoon.py).
+            ("zigzagoon form=forlorn aspect=forlorn", "grounded", "common", "15-28", 6,
+             [d(AC + "corrodent_teeth", 30), d("minecraft:coarse_dirt", 40, "1-2")], "Corrodent"),
+            ("linoone form=forlorn aspect=forlorn", "grounded", "uncommon", "28-45", 2,
+             [d(AC + "corrodent_teeth", 60, "1-2")], "Corrodent"),
+            ("diglett", "grounded", "common", "18-30", 2, [d("minecraft:coarse_dirt", 50, "1-2")], "-"),
+            ("drilbur", "grounded", "uncommon", "18-30", 1, [], "-"),
         ],
     },
     "candy_cavity": {
         "name": "Candy Cavity",
-        # Gummy Bear e Gum Worm já saem pelas formas Candyan (arquivos candyan_*.json).
+        # Gummy Bear e Gum Worm já saem pelas formas Candyan (arquivos candyan_*.json e o Rayquaza Candyan).
         "removed": ["candicorn", "sweetish_fish", "caramel_cube"],
         "pokemon": [
-            # Ponyta e Rapidash Candyan: o de Galar com os sabores dos Candicorns (tools/candyan_ponyta.py).
-            *[(f"ponyta galarian aspect=candyan aspect=candyan_{f}", "grounded", "uncommon", "15-30", 1,
+            # Ponyta e Rapidash Candyan: forma regional (Fada), com os sabores dos Candicorns (tools/candyan_ponyta.py
+            # e tools/regional_forms.py).
+            *[(f"ponyta form=candyan aspect=candyan candicorn={f}", "grounded", "uncommon", "15-30", 1,
                [d(AC + "sweet_puff", 60, "1-2")], "Candicorn") for f in FLAVORS],
-            *[(f"rapidash galarian aspect=candyan aspect=candyan_{f}", "grounded", "rare", "40-50", 0.2,
+            *[(f"rapidash form=candyan aspect=candyan candicorn={f}", "grounded", "rare", "40-50", 0.2,
                [d(AC + "sweet_puff", 80, "2-3")], "Candicorn") for f in FLAVORS],
-            ("magikarp", "submerged", "common", "5-20", 6,
-             [d(AC + "sweetish_fish_" + c, 12) for c in ("red", "green", "yellow", "blue", "pink")], "Sweetish Fish"),
+            # Rayquaza Candyan: a Gum Worm (Fada/Dragão, tools/rayquaza_gumworm.py). Incapturável por enquanto.
+            ("rayquaza form=candyan aspect=candyan uncatchable", "grounded", "ultra-rare", "60-70", 1,
+             [d(AC + "sweet_tooth", 100, "2-4")], "Gum Worm"),
+            # Wishiwashi Candyan: o Sweetish Fish (tools/candyan_wishiwashi.py); cada cor dá a bala da mesma cor.
+            *[(f"wishiwashi form=candyan aspect=candyan sweetish_fish={c}", where, "common", "5-20", 3,
+               [d(AC + f"sweetish_fish_{c}", 50, "1-2")], "Sweetish Fish")
+              for where in ("submerged", "soda") for c in ("red", "green", "yellow", "blue", "pink")],
             ("goomy", "grounded", "uncommon", "15-30", 3, [d(AC + "caramel", 60, "1-2")], "Caramel Cube"),
+            # Tangela Candyan: o licoroot, de alcaçuz (tools/candyan_tangela.py).
+            ("tangela form=candyan aspect=candyan", "grounded", "uncommon", "15-30", 3,
+             [d(AC + "licoroot_vine", 60, "1-3")], "Licoroot"),
+            ("tangrowth form=candyan aspect=candyan", "grounded", "rare", "33-50", 0.5,
+             [d(AC + "licoroot_vine", 80, "2-4"), d(AC + "licoroot", 30)], "Licoroot"),
+            # Vanillite, Vanillish e Vanilluxe Candyan: os sorvetes, em cada sabor (tools/candyan_vanillite.py).
+            *[(f"vanillite form=candyan aspect=candyan ice_cream={f}", "grounded", "common", "12-28", 1.5,
+               [d(AC + f"{scoop}_scoop", 50)], "-") for f, scoop in SCOOPS.items()],
+            *[(f"vanillish form=candyan aspect=candyan ice_cream={f}", "grounded", "uncommon", "35-45", 0.5,
+               [d(AC + f"{scoop}_scoop", 60, "1-2")], "-") for f, scoop in SCOOPS.items()],
+            *[(f"vanilluxe form=candyan aspect=candyan ice_cream={f}", "grounded", "rare", "47-55", 0.2,
+               [d(AC + f"{scoop}_scoop", 70, "1-3"), d(AC + "sundae", 15)], "-") for f, scoop in SCOOPS.items()],
             ("swirlix", "grounded", "uncommon", "15-30", 3, [], "-"),
             ("milcery", "grounded", "rare", "15-30", 2, [], "-"),
         ],
@@ -108,7 +139,11 @@ CAVES = {
         "name": "Magnetic Caves",
         "removed": [],
         "pokemon": [
-            ("magnemite", "grounded", "common", "18-30", 6, [], "-"),
+            # Magnemite, Magneton e Magnezone Magnetian: os ímãs da caverna (tools/magnetian_magnemite.py).
+            ("magnemite form=magnetian aspect=magnetian", "grounded", "common", "18-30", 6,
+             [d(AC + "raw_scarlet_neodymium", 25), d(AC + "raw_azure_neodymium", 25)], "-"),
+            ("magneton form=magnetian aspect=magnetian", "grounded", "rare", "30-45", 1,
+             [d(AC + "raw_scarlet_neodymium", 40, "1-2"), d(AC + "raw_azure_neodymium", 40, "1-2")], "-"),
             ("nosepass", "grounded", "uncommon", "20-35", 3, [], "-"),
             ("klink", "grounded", "uncommon", "18-30", 3, [], "-"),
             ("beldum", "grounded", "rare", "20-35", 1, [], "-"),
@@ -142,19 +177,20 @@ def main():
     for biome, cave in CAVES.items():
         spawns = []
         for species, position, bucket, levels, weight, drops, _ in cave["pokemon"]:
-            acid = position == "acid"
+            # Nos lagos de ácido ou de refrigerante: "debaixo d'água" naquele líquido (HomeFluids faz ele contar como água).
+            liquid = {"acid": "acid", "soda": "purple_soda"}.get(position)
             spawn = {
-                "id": f"ecosystems_hollows-{biome}-{species.replace('aspect=', '').replace(' ', '-')}" + ("-acid" if acid else ""),
+                "id": f"ecosystems_hollows-{biome}-{species.replace('aspect=', '').replace(' ', '-')}" + (f"-{position}" if liquid else ""),
                 "pokemon": species,
                 "type": "pokemon",
-                "spawnablePositionType": "submerged" if acid else position,
+                "spawnablePositionType": "submerged" if liquid else position,
                 "bucket": bucket,
                 "level": levels,
                 "weight": float(weight),
                 "condition": {"canSeeSky": False, "biomes": [AC + biome]},
             }
-            if acid:
-                spawn["condition"]["fluid"] = AC + "acid"
+            if liquid:
+                spawn["condition"]["fluid"] = AC + liquid
             if drops:
                 spawn["drops"] = drop_table(drops)
             spawns.append(spawn)
@@ -168,11 +204,15 @@ def main():
         f = pool / f"{name}.json"
         spawns = json.loads(f.read_text(encoding="utf-8"))
         for s in spawns["spawns"]:
-            color = next(a for a in s["pokemon"].split() if a.startswith("aspect=candyan_")).split("_")[-1]
+            # O sabor é a feature "gummy" (regional_forms.py), não um aspect solto.
+            s["pokemon"] = s["pokemon"].replace("aspect=candyan_", "gummy=")
+            color = next(a for a in s["pokemon"].split() if a.startswith("gummy=")).split("=")[-1]
             s["drops"] = drop_table([d(AC + "gelatin_" + GELATIN[color], 70, gelatin_qty)] + extra)
         write(f, spawns)
+    # Orthworm Candyan: desligado por enquanto (o Rayquaza Candyan é a Gum Worm agora).
     f = pool / "candyan_orthworm.json"
     spawns = json.loads(f.read_text(encoding="utf-8"))
+    spawns["enabled"] = False
     for s in spawns["spawns"]:
         s["drops"] = drop_table([d(AC + "sweet_tooth", 50)])
     write(f, spawns)
@@ -205,9 +245,9 @@ def write_md(path):
             lines += ["Saem: " + ", ".join(m.replace("_", " ").title() for m in cave["removed"]), ""]
         lines += ["| Pokémon | Substitui | Onde | Raridade | Níveis | Peso | Drops |", "|---|---|---|---|---|---|---|"]
         for species, position, bucket, levels, weight, drops, replaces in cave["pokemon"]:
-            where = {"grounded": "chão", "submerged": "água", "acid": "ácido"}[position]
+            where = {"grounded": "chão", "submerged": "água", "acid": "ácido", "soda": "refrigerante"}[position]
             drop_text = ", ".join(f"{x['item'].split(':')[1]} {x['qty']} ({x['percentage']}%)" for x in drops) or "normais do Cobblemon"
-            label = species.split(" form=")[0].split(" aspect=")[0].title() + (" Toxian" if "toxian" in species else "") + (" Candyan " + species.rsplit("candyan_", 1)[1].replace("_", " ") if "candyan_" in species else "")
+            label = species.split(" form=")[0].split(" aspect=")[0].title() + (" Toxian" if "toxian" in species else "") + (" Magnetian" if "magnetian" in species else "") + (" Forlorn" if "forlorn" in species else "") + (" Candyan " + species.split()[-1].split("=")[1].replace("_", " ") if "candyan" in species and species.split()[-1].split("=")[0] in ("candicorn", "sweetish_fish", "ice_cream") else " Candyan" if "candyan" in species else "") + (" (incapturável)" if "uncatchable" in species else "")
             lines.append(f"| {label} | {replaces} | {where} | {bucket} | {levels} | {weight} | {drop_text} |")
         lines.append("")
     lines += [
@@ -217,7 +257,7 @@ def write_md(path):
         "|---|---|---|",
         "| Stufful Candyan | Gummy Bear | gelatina da cor 1-2 (70%): vermelho e laranja dão vermelha, roxo dá rosa |",
         "| Bewear Candyan | Gummy Bear | gelatina da cor 2-3 (70%) |",
-        "| Orthworm Candyan | Gum Worm | sweet_tooth 1 (50%) |",
+        "| Orthworm Candyan | Gum Worm | sweet_tooth 1 (50%). **Desligado por enquanto** (a Gum Worm é o Rayquaza Candyan) |",
         "",
         "## A decidir",
         "",

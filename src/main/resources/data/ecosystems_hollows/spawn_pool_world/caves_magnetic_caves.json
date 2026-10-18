@@ -6,8 +6,8 @@
   "neededUninstalledMods": [],
   "spawns": [
     {
-      "id": "ecosystems_hollows-magnetic_caves-magnemite",
-      "pokemon": "magnemite",
+      "id": "ecosystems_hollows-magnetic_caves-magnemite-form=magnetian-magnetian",
+      "pokemon": "magnemite form=magnetian aspect=magnetian",
       "type": "pokemon",
       "spawnablePositionType": "grounded",
       "bucket": "common",
@@ -17,6 +17,49 @@
         "canSeeSky": false,
         "biomes": [
           "alexscaves:magnetic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:raw_scarlet_neodymium",
+            "percentage": 25.0
+          },
+          {
+            "item": "alexscaves:raw_azure_neodymium",
+            "percentage": 25.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecosystems_hollows-magnetic_caves-magneton-form=magnetian-magnetian",
+      "pokemon": "magneton form=magnetian aspect=magnetian",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "30-45",
+      "weight": 1.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:magnetic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 2,
+        "entries": [
+          {
+            "item": "alexscaves:raw_scarlet_neodymium",
+            "percentage": 40.0,
+            "quantityRange": "1-2"
+          },
+          {
+            "item": "alexscaves:raw_azure_neodymium",
+            "percentage": 40.0,
+            "quantityRange": "1-2"
+          }
         ]
       }
     },

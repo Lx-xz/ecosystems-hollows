@@ -280,6 +280,30 @@
           }
         ]
       }
+    },
+    {
+      "id": "ecosystems_hollows-toxic_caves-heracross-form=toxian-toxian",
+      "pokemon": "heracross form=toxian aspect=toxian",
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "20-40",
+      "weight": 3.0,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "alexscaves:toxic_caves"
+        ]
+      },
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "item": "alexscaves:toxic_paste",
+            "percentage": 40.0
+          }
+        ]
+      }
     }
   ]
 }

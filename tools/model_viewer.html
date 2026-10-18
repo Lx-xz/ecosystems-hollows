@@ -262,7 +262,8 @@ function boxGeometry(min, max, uv, size, mirror, tw, th, perFace) {
   return g;
 }
 
-function buildModel(model, materials) {
+// A pose parada (a animação de ficar parado no instante zero) soma por cima do modelo, como no jogo.
+function buildModel(model, materials, pose) {
   const root = new THREE.Group();
   root.scale.set(-1, -1, 1);
   const groups = {}, pivots = {};
@@ -270,14 +271,15 @@ function buildModel(model, materials) {
     const g = new THREE.Group();
     const p = b.pivot || [0, 0, 0];
     pivots[b.name] = [p[0], -p[1], p[2]];
-    const r = b.rotation || [0, 0, 0];
-    g.rotation.set(rad(r[0]), rad(r[1]), rad(r[2]), "ZYX");
+    const r = b.rotation || [0, 0, 0], a = (pose && pose[b.name] && pose[b.name].rotation) || [0, 0, 0];
+    g.rotation.set(rad(r[0] + a[0]), rad(r[1] + a[1]), rad(r[2] + a[2]), "ZYX");
     groups[b.name] = g;
   }
   for (const b of model.bones) {
     const g = groups[b.name], pj = pivots[b.name];
     const parentPivot = b.parent && pivots[b.parent] ? pivots[b.parent] : [0, 0, 0];
-    g.position.set(pj[0] - parentPivot[0], pj[1] - parentPivot[1], pj[2] - parentPivot[2]);
+    const m = (pose && pose[b.name] && pose[b.name].position) || [0, 0, 0];
+    g.position.set(pj[0] - parentPivot[0] - m[0], pj[1] - parentPivot[1] - m[1], pj[2] - parentPivot[2] + m[2]);
     (b.parent && groups[b.parent] ? groups[b.parent] : root).add(g);
     for (const c of b.cubes || []) {
       const [ox, oy, oz] = c.origin, [w, h, d] = c.size, inf = c.inflate || 0;
@@ -340,7 +342,7 @@ function show(group, entry) {
     mats.push(mat);
     if (frames.length > 1 && layer.fps) animated.push({ mat, frames, fps: layer.fps, index: 0 });
   }
-  model = buildModel(DATA.models[entry.model], mats);
+  model = buildModel(DATA.models[entry.model], mats, (DATA.poses || {})[entry.poser]);
   scene.add(model);
   fit();
   card();
@@ -351,9 +353,12 @@ function show(group, entry) {
 const pad4 = n => String(n).padStart(4, "0");
 function spawnCommand(group, entry) {
   if (entry.original) return "";
-  const parts = [group.id, group.regional ? group.formAspect : "aspect=" + group.formAspect];
+  const parts = [group.id];
+  if (group.formAspect) parts.push(group.regional ? group.formAspect : "aspect=" + group.formAspect);
   for (const a of entry.aspects) {
     if (a === "shiny") parts.push("shiny");
+    // Sabores e cores (candyan_sweetberry) são features do mod: a palavra solta basta.
+    else if (group.formAspect && a.startsWith(group.formAspect + "_")) parts.push(a.slice(group.formAspect.length + 1));
     else if (a !== "school-form" && a !== group.formAspect) parts.push("aspect=" + a);
   }
   return "/pokespawn " + parts.join(" ");
@@ -370,7 +375,7 @@ function card() {
   const head = el("div", "head");
   head.append(el("span", "no", "No." + pad4(group.dex)), el("h2", null, group.species), el("span", "form", group.form));
   box.append(head);
-  box.append(el("div", "kind", group.regional ? "Forma regional" : "Variação visual (mesmos dados da espécie)"));
+  box.append(el("div", "kind", !group.formAspect ? "Espécie nova do mod" : group.regional ? "Forma regional" : "Variação visual (mesmos dados da espécie)"));
   const types = el("div", "types");
   for (const t of group.types) { const s = el("span", "type", t.name); s.style.background = TYPE_COLORS[t.id] || "#777"; types.append(s); }
   box.append(types);

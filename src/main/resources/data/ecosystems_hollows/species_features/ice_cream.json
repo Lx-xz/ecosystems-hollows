@@ -1,0 +1,16 @@
+{
+  "type": "choice",
+  "keys": [
+    "ice_cream"
+  ],
+  "needsKey": false,
+  "default": "random",
+  "choices": [
+    "vanilla",
+    "chocolate",
+    "sweetberry",
+    "frostmint"
+  ],
+  "isAspect": true,
+  "aspectFormat": "candyan_{{choice}}"
+}

@@ -1,0 +1,8 @@
+{
+  "keys": [
+    "toxian"
+  ],
+  "type": "flag",
+  "isAspect": true,
+  "default": false
+}

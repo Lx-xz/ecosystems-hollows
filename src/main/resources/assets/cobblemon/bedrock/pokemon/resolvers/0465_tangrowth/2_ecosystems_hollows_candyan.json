@@ -1,0 +1,19 @@
+{
+  "species": "cobblemon:tangrowth",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "candyan"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/tangrowth/tangrowth_candyan.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/tangrowth/tangrowth_candyan_shiny.png"
+    }
+  ]
+}

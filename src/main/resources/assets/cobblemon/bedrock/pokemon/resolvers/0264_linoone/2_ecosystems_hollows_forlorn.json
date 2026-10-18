@@ -1,0 +1,14 @@
+{
+  "species": "cobblemon:linoone",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "forlorn"
+      ],
+      "poser": "cobblemon:linoone_galarian",
+      "model": "ecosystems_hollows:linoone_forlorn.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/linoone/linoone_forlorn.png"
+    }
+  ]
+}

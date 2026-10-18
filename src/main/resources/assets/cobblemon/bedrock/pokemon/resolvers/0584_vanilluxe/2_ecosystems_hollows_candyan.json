@@ -1,0 +1,72 @@
+{
+  "species": "cobblemon:vanilluxe",
+  "order": 2,
+  "variations": [
+    {
+      "aspects": [
+        "candyan"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_vanilla.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_vanilla"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_vanilla.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_chocolate"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_chocolate.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_sweetberry"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_sweetberry.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "candyan_frostmint"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_frostmint.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_vanilla"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_vanilla_shiny.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_chocolate"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_chocolate_shiny.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_sweetberry"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_sweetberry_shiny.png"
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_frostmint"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/vanilluxe/vanilluxe_candyan_frostmint_shiny.png"
+    }
+  ]
+}

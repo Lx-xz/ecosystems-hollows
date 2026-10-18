@@ -12,6 +12,8 @@
 import argparse
 import base64
 import json
+import math
+import re
 import zipfile
 from pathlib import Path
 
@@ -32,6 +34,11 @@ class Assets:
         self.names = self.jar.namelist()
         self.lang = json.loads(self.jar.read("assets/cobblemon/lang/pt_br.json"))
         self.lang_en = json.loads(self.jar.read("assets/cobblemon/lang/en_us.json"))
+        # As traduções do nosso mod (nomes das espécies novas) por cima.
+        for f in self.res.glob("assets/*/lang/pt_br.json"):
+            self.lang.update(json.loads(f.read_text(encoding="utf-8")))
+        for f in self.res.glob("assets/*/lang/en_us.json"):
+            self.lang_en.update(json.loads(f.read_text(encoding="utf-8")))
 
     def t(self, key, fallback):
         return self.lang.get(key) or self.lang_en.get(key) or fallback
@@ -51,6 +58,51 @@ class Assets:
         path = next(n for n in self.names if n.startswith(f"assets/{ns}/bedrock/pokemon/models/") and n.endswith("/" + name))
         return json.loads(self.jar.read(path))
 
+    def find(self, ns, kind, filename):
+        """Um arquivo de assets/<ns>/bedrock/pokemon/<kind>/**/<filename>, do nosso mod ou do Cobblemon."""
+        ours = list((self.res / "assets" / ns / "bedrock/pokemon" / kind).rglob(filename))
+        if ours:
+            return json.loads(ours[0].read_text(encoding="utf-8"))
+        prefix = f"assets/{ns}/bedrock/pokemon/{kind}/"
+        path = next((n for n in self.names if n.startswith(prefix) and n.endswith("/" + filename)), None)
+        return json.loads(self.jar.read(path)) if path else None
+
+    def rest_pose(self, poser_id):
+        """A pose parada do Pokémon: a primeira animação da pose de ficar parado do poser, no instante zero. Só
+        rotações e posições dos ossos (o visualizador soma por cima do modelo)."""
+        if not poser_id:
+            return {}
+        ns, name = poser_id.split(":")
+        poser = self.find(ns, "posers", name + ".json")
+        if not poser:
+            return {}
+        pose = next((p for p in poser.get("poses", {}).values() if "STAND" in p.get("poseTypes", [])), None)
+        anims = [a for a in (pose or {}).get("animations", []) if isinstance(a, str)]
+        call = next((re.match(r"q\.bedrock\('([^']+)',\s*'([^']+)'", a) for a in anims if "q.bedrock(" in a), None)
+        if not call:
+            return {}
+        group, anim = call.groups()
+        data = None
+        for anim_ns in ([ns, "cobblemon"] if ns != "cobblemon" else ["cobblemon"]):
+            data = self.find(anim_ns, "animations", group + ".animation.json")
+            if data:
+                break
+        bones = ((data or {}).get("animations", {}).get(f"animation.{group}.{anim}", {}) or {}).get("bones", {})
+        pose_out = {}
+        for bone, channels in bones.items():
+            entry = {}
+            for channel in ("rotation", "position"):
+                value = channels.get(channel)
+                if isinstance(value, dict):   # quadros-chave: o primeiro
+                    value = next(iter(value.values()), None)
+                    if isinstance(value, dict):
+                        value = value.get("post") or value.get("pre")
+                if isinstance(value, list) and len(value) == 3:
+                    entry[channel] = [molang(v) for v in value]
+            if entry:
+                pose_out[bone] = entry
+        return pose_out
+
     def resolvers(self, folder):
         found = []
         prefix = f"assets/cobblemon/bedrock/pokemon/resolvers/{folder}/"
@@ -61,7 +113,15 @@ class Assets:
             found.append(json.loads(f.read_text(encoding="utf-8")))
         return sorted(found, key=lambda r: r.get("order", 0))
 
+    def own_species(self, name):
+        """Uma espécie nova do nosso mod (data/*/species/**/<nome>.json), ou None."""
+        found = list(self.res.glob(f"data/*/species/**/{name}.json"))
+        return json.loads(found[0].read_text(encoding="utf-8")) if found else None
+
     def species(self, name):
+        own = self.own_species(name)
+        if own:
+            return own
         path = next((n for n in self.names if n.startswith("data/cobblemon/species/") and n.endswith(f"/{name}.json")), None)
         return json.loads(self.jar.read(path)) if path else {}
 
@@ -77,13 +137,26 @@ class Assets:
         return None
 
 
+def molang(value):
+    """Um valor do Molang no instante zero (as animações usam Math.cos/sin em graus e query.anim_time)."""
+    if isinstance(value, (int, float)):
+        return float(value)
+    expr = str(value).replace("query.anim_time", "0").replace("q.anim_time", "0").replace("Math.", "")
+    env = {"cos": lambda d: math.cos(math.radians(d)), "sin": lambda d: math.sin(math.radians(d)),
+           "abs": abs, "min": min, "max": max, "sqrt": math.sqrt, "pi": math.pi, "clamp": lambda v, a, b: max(a, min(b, v))}
+    try:
+        return float(eval(expr, {"__builtins__": {}}, env))
+    except Exception:
+        return 0.0
+
+
 def fold(resolvers, aspects):
     """O que o Cobblemon mostra para esses aspects: as variações que valem, somadas em ordem."""
-    state = {"model": None, "texture": None, "layers": {}}
+    state = {"model": None, "texture": None, "poser": None, "layers": {}}
     for r in resolvers:
         for v in r["variations"]:
             if set(v.get("aspects", [])) <= set(aspects):
-                for key in ("model", "texture"):
+                for key in ("model", "texture", "poser"):
                     if key in v:
                         state[key] = v[key]
                 for layer in v.get("layers", []):
@@ -118,10 +191,10 @@ def main():
     args = ap.parse_args()
     forms = json.loads(args.forms)
     assets = Assets(args.jar, args.resources)
-    textures, models, groups = {}, {}, []
+    textures, models, groups, poses = {}, {}, [], {}
 
     def is_ours(a):
-        return a in forms or any(a.startswith(f + "_") for f in forms)
+        return a in forms or any(f and a.startswith(f + "_") for f in forms)
 
     def label(aspects):
         parts = []
@@ -129,7 +202,8 @@ def main():
             if a in forms:
                 continue
             for f in forms:
-                a = a.removeprefix(f + "_")
+                if f:
+                    a = a.removeprefix(f + "_")
             parts.append(NAMES.get(a, a.replace("_", " ").capitalize()))
         return " · ".join(parts) or "Normal"
 
@@ -153,8 +227,10 @@ def main():
             layers.append({"name": layer_name, "frames": [tex(f) for f in layer_frames], "fps": fps,
                            "emissive": layer.get("emissive") in (True, "true"),
                            "translucent": layer.get("translucent") in (True, "true")})
+        if state["poser"] not in poses:
+            poses[state["poser"]] = assets.rest_pose(state["poser"])
         return {"name": name, "aspects": aspects, "model": state["model"], "texture": tex(frames(state["texture"])[0][0]),
-                "layers": layers}
+                "layers": layers, "poser": state["poser"]}
 
     root = assets.res / "assets/cobblemon/bedrock/pokemon/resolvers"
     for folder in sorted(p.name for p in root.iterdir() if p.is_dir()):
@@ -165,9 +241,13 @@ def main():
                 for v in json.loads(f.read_text(encoding="utf-8"))["variations"]]
         by_form = {}
         for v in ours:
+            if "texture" not in v and not v.get("layers"):
+                continue   # só troca o modelo (ex.: o Bewear Candyan): a aparência vem das outras variações
             aspects = v.get("aspects", [])
             form = next((a for a in aspects if a in forms), None)
-            if form:
+            if form is None and assets.own_species(species) and "" in forms:
+                form = ""   # espécie nova do mod: as variações dela (normal, shiny) ficam juntas
+            if form is not None:
                 by_form.setdefault(form, []).append(aspects)
         for form, aspect_sets in by_form.items():
             entries, originals = [], []
@@ -175,7 +255,7 @@ def main():
                 plain = [a for a in aspects if not is_ours(a)]
                 if plain not in originals and "shiny" not in plain:
                     originals.append(plain)
-            for plain in originals:
+            for plain in (originals if form else []):   # espécie nova: não tem original para comparar
                 e = entry(resolvers, plain, "Original" + (" · " + label(plain) if plain else ""))
                 if e:
                     e["original"] = True
@@ -205,7 +285,8 @@ def main():
             })
     groups.sort(key=lambda g: (g["dex"], g["form"]))
     data = json.dumps({"title": args.title, "subtitle": args.subtitle, "repo": args.repo, "groups": groups,
-                       "models": models, "textures": textures}, separators=(",", ":"), ensure_ascii=False)
+                       "models": models, "textures": textures,
+                       "poses": poses}, separators=(",", ":"), ensure_ascii=False)
     template = (Path(__file__).parent / "model_viewer.html").read_text(encoding="utf-8")
     page = template.replace("/*DATA*/null", data).replace("{{TITLE}}", args.title)
     # Documento completo, para o GitHub Pages (o template é só o miolo da página).

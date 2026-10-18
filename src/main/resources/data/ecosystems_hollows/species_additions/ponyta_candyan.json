@@ -1,0 +1,119 @@
+{
+  "target": "cobblemon:ponyta",
+  "forms": [
+    {
+      "name": "Candyan",
+      "primaryType": "fairy",
+      "aspects": [
+        "candyan"
+      ],
+      "labels": [
+        "candyan_form",
+        "ecosystems_hollows"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 70,
+        "defence": 55,
+        "special_attack": 80,
+        "special_defence": 70,
+        "speed": 90
+      },
+      "abilities": [
+        "sweetveil",
+        "runaway",
+        "h:pastelveil"
+      ],
+      "moves": [
+        "1:tackle",
+        "1:growl",
+        "5:tailwhip",
+        "10:disarmingvoice",
+        "15:fairywind",
+        "20:agility",
+        "25:drainingkiss",
+        "30:stomp",
+        "35:sweetkiss",
+        "41:takedown",
+        "45:dazzlinggleam",
+        "50:playrough",
+        "55:moonblast",
+        "egg:doubleedge",
+        "egg:doublekick",
+        "egg:horndrill",
+        "egg:hypnosis",
+        "egg:morningsun",
+        "egg:thrash",
+        "tm:agility",
+        "tm:allyswitch",
+        "tm:bodyslam",
+        "tm:bounce",
+        "tm:calmmind",
+        "tm:charm",
+        "tm:dazzlinggleam",
+        "tm:doubleedge",
+        "tm:endure",
+        "tm:expandingforce",
+        "tm:facade",
+        "tm:futuresight",
+        "tm:highhorsepower",
+        "tm:imprison",
+        "tm:irontail",
+        "tm:lowkick",
+        "tm:mysticalfire",
+        "tm:playrough",
+        "tm:protect",
+        "tm:drainingkiss",
+        "tm:rest",
+        "tm:sleeptalk",
+        "tm:storedpower",
+        "tm:substitute",
+        "tm:swift",
+        "tm:takedown",
+        "tm:terablast",
+        "tm:wildcharge",
+        "tm:zenheadbutt",
+        "tutor:allyswitch",
+        "tutor:bounce",
+        "tutor:calmmind",
+        "tutor:dazzlinggleam",
+        "tutor:expandingforce",
+        "tutor:highhorsepower",
+        "tutor:irontail",
+        "tutor:lowkick",
+        "tutor:mysticalfire",
+        "tutor:playrough",
+        "tutor:rest",
+        "tutor:sleeptalk",
+        "tutor:swift",
+        "tutor:wildcharge",
+        "tutor:zenheadbutt",
+        "legacy:attract",
+        "legacy:round",
+        "legacy:snore",
+        "1:fairywind",
+        "tm:moonblast",
+        "tm:mistyterrain",
+        "tm:sweetscent"
+      ],
+      "battleOnly": false,
+      "evolutions": [
+        {
+          "id": "ponyta_rapidashcandyan",
+          "variant": "level_up",
+          "result": "rapidash candyan",
+          "consumeHeldItem": false,
+          "learnableMoves": [
+            "psychocut"
+          ],
+          "requirements": [
+            {
+              "variant": "level",
+              "minLevel": 40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

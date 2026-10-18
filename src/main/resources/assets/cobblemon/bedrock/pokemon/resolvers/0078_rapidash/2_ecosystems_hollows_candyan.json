@@ -4,7 +4,22 @@
   "variations": [
     {
       "aspects": [
-        "galarian",
+        "candyan"
+      ],
+      "poser": "cobblemon:rapidash_galarian",
+      "model": "cobblemon:rapidash_galar.geo",
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_peppermint.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
         "candyan_candy_corn"
       ],
       "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_candy_corn.png",
@@ -18,7 +33,7 @@
     },
     {
       "aspects": [
-        "galarian",
+        "candyan",
         "candyan_peppermint"
       ],
       "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_peppermint.png",
@@ -32,7 +47,7 @@
     },
     {
       "aspects": [
-        "galarian",
+        "candyan",
         "candyan_mint_chip"
       ],
       "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_mint_chip.png",
@@ -46,7 +61,7 @@
     },
     {
       "aspects": [
-        "galarian",
+        "candyan",
         "candyan_cherry_ice"
       ],
       "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cherry_ice.png",
@@ -60,7 +75,7 @@
     },
     {
       "aspects": [
-        "galarian",
+        "candyan",
         "candyan_cotton_candy"
       ],
       "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cotton_candy.png",
@@ -68,6 +83,81 @@
         {
           "name": "emissive",
           "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_candy_corn"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_candy_corn_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_candy_corn_shiny_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_peppermint"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_peppermint_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_peppermint_shiny_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_mint_chip"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_mint_chip_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_mint_chip_shiny_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_cherry_ice"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cherry_ice_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cherry_ice_shiny_emissive.png",
+          "emissive": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "candyan",
+        "shiny",
+        "candyan_cotton_candy"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cotton_candy_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "ecosystems_hollows:textures/pokemon/rapidash/rapidash_candyan_cotton_candy_shiny_emissive.png",
           "emissive": true
         }
       ]

@@ -11,8 +11,22 @@
       "layers": [
         {
           "name": "emissive",
-          "texture": "ecosystems_hollows:textures/pokemon/sharpedo/sharpedo_toxian_emissive.png",
-          "emissive": true
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/sharpedo/sharpedo_toxian_emissive.png"
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "toxian",
+        "shiny"
+      ],
+      "texture": "ecosystems_hollows:textures/pokemon/sharpedo/sharpedo_toxian_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "emissive": true,
+          "texture": "ecosystems_hollows:textures/pokemon/sharpedo/sharpedo_toxian_shiny_emissive.png"
         }
       ]
     }

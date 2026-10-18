@@ -2,6 +2,10 @@ modLoader = "javafml"
 loaderVersion = "[4,)"
 license = "MPL-2.0"
 
+# Mixins: o ácido do Alex's Caves conta como água para os Pokémon Toxian (veja ToxianFluids).
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
 [[mods]]
 modId = "${mod_id}"
 version = "${mod_version}"

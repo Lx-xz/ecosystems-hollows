@@ -9,6 +9,11 @@
 # A luz e a sombra vêm da textura original, esticadas numa rampa (cada parte vai do escuro ao claro), para não ficar
 # lisa. O focinho fica claro e os cascos escuros, como nos Candicorns. No Rapidash saem os tufos longos das patas
 # e os dois rabos dos lados (fica só o do meio); a crina continua igual.
+# São a forma regional Candyan (aspect "candyan", em data/ecosystems_hollows/species_additions), com o modelo e o
+# poser do de Galar; o sabor é a feature "candicorn" (regional_forms.py), sorteada quando nasce:
+#   /pokespawn ponyta candyan peppermint shiny
+# Shiny: o mesmo sabor coberto de folha de ouro (chifre e cascos dourados) e açúcar cristalizado brilhando na crina e
+# no rabo (pontos de brilho, e a crina acende no escuro, numa camada que brilha).
 #
 # Uso: python candyan_ponyta.py <jar do Cobblemon> <pasta resources do mod> [pasta da prévia]
 import json
@@ -33,6 +38,7 @@ MINT, DARK_MINT, CHOCO = (120, 226, 170), (46, 168, 110), (96, 56, 34)
 ICE, ICE_LIGHT = (130, 200, 245), (210, 238, 255)
 PINK, BLUE = (255, 150, 205), (96, 160, 240)
 HOOF = (64, 26, 70)  # os cascos roxo-escuros dos Candicorns
+GOLD, GOLD_LIGHT = (232, 176, 48), (255, 236, 150)   # shiny: folha de ouro
 # O que sai do Rapidash (fica transparente): os tufos longos das patas e os rabos dos lados.
 REMOVED = {"rapidash": ("leg_fluff", "tail_left", "tail_right")}
 
@@ -153,7 +159,7 @@ def face_map(geo, width, height):
     return owner
 
 
-def paint(texture, owner, flavor, removed=()):
+def paint(texture, owner, flavor, removed=(), shiny=False):
     src = texture.convert("RGBA")
     out = src.copy()
     sp, op = src.load(), out.load()
@@ -170,8 +176,26 @@ def paint(texture, owner, flavor, removed=()):
             if part is None:
                 continue
             color = HOOF if part == "hoof" else flavor(part, x, y, fx, fy, fw, fh)
-            op[x, y] = ramp(color, shade_t(ranges, part, luma(sp[x, y]))) + (sp[x, y][3],)
+            t = shade_t(ranges, part, luma(sp[x, y]))
+            if shiny and part == "hoof":
+                color = GOLD
+            elif shiny and part == "horn":
+                color = stripes(x, y, GOLD, GOLD_LIGHT, 2)
+            elif shiny and part == "mane" and noise(x, y, 11) < 0.12:
+                color, t = WHITE, 1.0          # cristais de açúcar
+            op[x, y] = ramp(color, t) + (sp[x, y][3],)
     return out
+
+
+def glow_layer(img, owner):
+    """A crina e o rabo do shiny, numa camada que brilha no escuro (o resto fica vazio)."""
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ip, lp = img.load(), layer.load()
+    for y in range(img.height):
+        for x in range(img.width):
+            if owner[y][x] and part_of(owner[y][x][0]) == "mane" and ip[x, y][3]:
+                lp[x, y] = ip[x, y]
+    return layer
 
 
 def main():
@@ -188,14 +212,30 @@ def main():
         for flavor, fn in FLAVORS.items():
             img = paint(texture, owner, fn, REMOVED.get(species, ()))
             img.save(out / f"{species}_candyan_{flavor}.png")
-            variants.append(img)
+            shiny = paint(texture, owner, fn, REMOVED.get(species, ()), shiny=True)
+            shiny.save(out / f"{species}_candyan_{flavor}_shiny.png")
+            glow_layer(shiny, owner).save(out / f"{species}_candyan_{flavor}_shiny_emissive.png")
+            variants += [img, shiny]
         # O brilho do Ponyta de Galar (crina lilás e verde) não combina com os doces: camada vazia no lugar.
         Image.new("RGBA", texture.size, (0, 0, 0, 0)).save(out / f"{species}_candyan_emissive.png")
 
+        # O modelo e o poser vêm do resolver do de Galar.
+        galar = json.loads(z.read(f"assets/cobblemon/bedrock/pokemon/resolvers/{folder}/1_{species}_galarian.json"))
+        galar = galar["variations"][0]
         resolver = {"species": f"cobblemon:{species}", "order": 2, "variations": [
-            {"aspects": ["galarian", f"candyan_{flavor}"],
+            {"aspects": ["candyan"], "poser": galar["poser"], "model": galar["model"],
+             "texture": f"ecosystems_hollows:textures/pokemon/{species}/{species}_candyan_peppermint.png",
+             "layers": [{"name": "emissive", "texture": f"ecosystems_hollows:textures/pokemon/{species}/{species}_candyan_emissive.png",
+                         "emissive": True}]}] + [
+            {"aspects": ["candyan", f"candyan_{flavor}"],
              "texture": f"ecosystems_hollows:textures/pokemon/{species}/{species}_candyan_{flavor}.png",
              "layers": [{"name": "emissive", "texture": f"ecosystems_hollows:textures/pokemon/{species}/{species}_candyan_emissive.png",
+                         "emissive": True}]}
+            for flavor in FLAVORS] + [
+            {"aspects": ["candyan", "shiny", f"candyan_{flavor}"],
+             "texture": f"ecosystems_hollows:textures/pokemon/{species}/{species}_candyan_{flavor}_shiny.png",
+             "layers": [{"name": "emissive",
+                         "texture": f"ecosystems_hollows:textures/pokemon/{species}/{species}_candyan_{flavor}_shiny_emissive.png",
                          "emissive": True}]}
             for flavor in FLAVORS]}
         path = resources / f"assets/cobblemon/bedrock/pokemon/resolvers/{folder}/2_ecosystems_hollows_candyan.json"

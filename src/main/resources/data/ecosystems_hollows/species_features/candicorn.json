@@ -1,0 +1,17 @@
+{
+  "type": "choice",
+  "keys": [
+    "candicorn"
+  ],
+  "needsKey": false,
+  "default": "random",
+  "choices": [
+    "candy_corn",
+    "cherry_ice",
+    "cotton_candy",
+    "mint_chip",
+    "peppermint"
+  ],
+  "isAspect": true,
+  "aspectFormat": "candyan_{{choice}}"
+}

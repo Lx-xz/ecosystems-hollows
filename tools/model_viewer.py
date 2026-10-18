@@ -118,6 +118,12 @@ class Assets:
         found = list(self.res.glob(f"data/*/species/**/{name}.json"))
         return json.loads(found[0].read_text(encoding="utf-8")) if found else None
 
+    def cobblemon_aspects(self, folder):
+        """As marcas que os resolvers do próprio Cobblemon usam para essa espécie (shiny, as formas dele...)."""
+        prefix = f"assets/cobblemon/bedrock/pokemon/resolvers/{folder}/"
+        return {a for n in self.names if n.startswith(prefix) and n.endswith(".json")
+                for v in json.loads(self.jar.read(n))["variations"] for a in v.get("aspects", [])}
+
     def species(self, name):
         own = self.own_species(name)
         if own:
@@ -251,8 +257,10 @@ def main():
                 by_form.setdefault(form, []).append(aspects)
         for form, aspect_sets in by_form.items():
             entries, originals = [], []
+            known = assets.cobblemon_aspects(folder)
             for aspects in aspect_sets:
-                plain = [a for a in aspects if not is_ours(a)]
+                # O original para comparar: só as marcas que o Cobblemon conhece (sem as versões do nosso mod).
+                plain = [a for a in aspects if not is_ours(a) and a in known]
                 if plain not in originals and "shiny" not in plain:
                     originals.append(plain)
             for plain in (originals if form else []):   # espécie nova: não tem original para comparar

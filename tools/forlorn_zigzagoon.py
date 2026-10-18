@@ -1,13 +1,19 @@
 # Zigzagoon e Linoone Forlorn (Forlorn Hollows): o Corrodent do Alex's Caves, um rato-toupeira pelado e espinhento que
 # rói pedra. Usam o modelo e o poser dos de Galar (corpo comprido e baixo, de quatro, com o pelo arrepiado nas costas,
 # como o do Corrodent); a forma não evolui para o Obstagoon (regional_forms.py).
-# - Focinho: um bloco alto e curto de pele pelada, com o desenho do focinho do próprio Corrodent copiado face por face
-#   (rugas, tons e marcas dele), e os dois incisivos dele colados e compridos, pendurados na frente. A mandíbula
-#   acompanha o focinho e a língua fica toda dentro da boca (saem as presas de Galar e a ponta da língua).
-# - Olhos todos vermelhos e sem pálpebras: ele é cego, não pisca.
-# - Pelo: o marrom-avermelhado escuro do Corrodent, com o desenho do pelo dele por cima da luz do original.
-# - Linoone: espinhos nas costas e no rabo, recortados dos espinhos da própria textura do Corrodent, e patas maiores
-#   com três garras em cada pé.
+# - As peças do Corrodent vêm do próprio modelo dele (CorrodentModel do Alex's Caves): cada cubo novo copia, face por
+#   face, a face equivalente da caixa dele na textura dele (CORRODENT). Ao diminuir, cada pixel é a média dos que
+#   caem nele, presa à paleta daquela face (sem tons inventados nem manchas):
+#   - Focinho: o focinho pelado dele (pele pálida com rugas, o céu da boca vermelho embaixo), com a mandíbula dele.
+#   - Dentes: o plano dos incisivos dele, pendurado na frente do focinho, com a raiz dentro dele.
+#   - Linoone: a crista de espinhos das costas dele (uma crista fina, com as laterais recortadas em pontas) no lombo
+#     e no rabo, e o pelo do corpo e do rabo dele no corpo e no rabo.
+# - Olhos todos vermelhos e sem pálpebras: ele é cego, não pisca. A língua fica toda dentro da boca.
+#   - Pelo: todo cubo de pelo (corpo, cabeça, orelhas, pernas, tufos de Galar) recebe o pelo do Corrodent: o do peito
+#     na frente, o do quadril atrás e o do rabo no rabo. Os tufos e planos de Galar guardam o recorte deles (as pontas
+#     vazadas continuam vazadas).
+# - Patas e pés: pele rosada lisa (a luz do original, sem ruído) e garras claras; o Linoone tem patas maiores com três
+#   garras em cada pé.
 #
 # Uso: python forlorn_zigzagoon.py <jar do Cobblemon> <jar do Alex's Caves> <pasta resources do mod> [pasta da prévia]
 import colorsys
@@ -28,62 +34,65 @@ from toxian_sharpedo import noise, texel_positions  # noqa: E402
 
 SPECIES = {"zigzagoon": "0263_zigzagoon", "linoone": "0264_linoone"}
 EYE_RED = [(60, 4, 4), (110, 12, 8), (170, 22, 10), (220, 34, 14), (255, 70, 30)]
-CLAW = [(40, 28, 26), (66, 48, 42), (104, 80, 68), (150, 124, 106), (190, 166, 146)]
+CLAW = [(120, 100, 90), (168, 148, 134), (212, 198, 184), (240, 232, 220)]   # garras claras, como as dele
 SKIN_BONES = ("jaw", "foot")    # pele rosada pelada (o focinho é cubo novo)
 TONGUE_BONES = ("tongue",)
 EYE_BONES = ("eye_left", "eye_right")
 FUR_TILE = (0, 8, 44, 46)    # o dorso do Corrodent (textura dele, 128 x 128)
 FUR = 0.5                    # quanto o desenho do pelo dele pesa sobre a luz do original
-# O focinho do Corrodent na textura dele: cubo com UV em (48, 28), 6 x 5 x 10.
-CORRODENT_SNOUT = ((48, 28), (6, 5, 10))
-# Os espinhos do Corrodent na textura dele: fileira de pontas de 4 de altura (a base embaixo).
-CORRODENT_SPIKES = (0, 61, 30, 4)
+# As caixas do modelo do Corrodent (CorrodentModel): UV na textura dele (128 x 128) e tamanho.
+CORRODENT = {
+    "snout": ((48, 28), (6, 5, 10)),
+    "jaw": ((53, 43), (6, 3, 9)),
+    "teeth": ((30, 7), (4, 7, 0)),
+    "hips": ((0, 0), (8, 9, 14)),
+    "chest": ((0, 23), (8, 9, 14)),
+    "ridge_hips": ((30, 32), (2, 5, 14)),    # a crista de espinhos das costas (laterais recortadas em pontas)
+    "ridge_chest": ((0, 46), (2, 5, 14)),
+    "tail": ((70, 8), (4, 5, 14)),
+}
 
 # Peças novas de cada espécie: (osso, origem, tamanho, tipo[, pivô, rotação]). O tipo diz como pintar.
 MODEL = {
     "zigzagoon": {
         "replace": {
-            "muzzle": [((-2, 3.1, -14), (4, 3.5, 4), "snout"),
-                       ((-1, 0.6, -14.6), (1, 2.5, 0.5), "tooth"),
-                       ((0, 0.6, -14.6), (1, 2.5, 0.5), "tooth")],
-            "jaw": [((-1.5, 2, -13.5), (3, 1, 4.5), "jaw")],
+            "muzzle": [((-2, 3.1, -15), (4, 4, 5), "copy:snout"),
+                       ((-1, 0.6, -15.01), (2, 3, 0), "copy:teeth")],
+            "jaw": [((-1.5, 2, -14), (3, 1, 5), "copy:jaw")],
         },
         "tongue_y": 3.02,
-        "drop": [],
         "drop_cubes": {"eye_left": [(1, 1, 0)], "eye_right": [(1, 1, 0)]},
     },
     "linoone": {
         "replace": {
-            "muzzle": [((-2, 4.85, -16.5), (4, 3, 4.5), "snout"),
-                       ((-1, 1.85, -17), (1, 3, 0.5), "tooth"),
-                       ((0, 1.85, -17), (1, 3, 0.5), "tooth")],
-            "jaw": [((-1.5, 3.75, -16), (3, 1, 6), "jaw")],
+            "muzzle": [((-2, 4.85, -18), (4, 3, 6), "copy:snout"),
+                       ((-1, 1.35, -18.01), (2, 4, 0), "copy:teeth")],
+            "jaw": [((-1.5, 3.75, -17), (3, 1, 7), "copy:jaw")],
             "teeth": [],
             "tongue_end": [],
             "foot_front_left2": [((0.15, -1, -6.5), (2.5, 1, 2.75), "paw")] + [
-                ((x, -1, -8), (0.5, 0.75, 1.5), "claw") for x in (0.35, 1.15, 1.95)],
+                ((x, -1, -7.5), (0.5, 0.5, 1), "claw") for x in (0.35, 1.15, 1.95)],
             "foot_front_right2": [((-2.65, -1, -6.5), (2.5, 1, 2.75), "paw")] + [
-                ((x, -1, -8), (0.5, 0.75, 1.5), "claw") for x in (-2.45, -1.65, -0.85)],
+                ((x, -1, -7.5), (0.5, 0.5, 1), "claw") for x in (-2.45, -1.65, -0.85)],
         },
-        # Garras dos pés de trás: saem as unhas planas e entram três garras na frente de cada pé.
         "add": {
-            "foot_back_left": [((x, 0, 2.5), (0.5, 0.5, 1.25), "claw") for x in (1.35, 2.0, 2.65)],
-            "foot_back_right": [((x, 0, 2.5), (0.5, 0.5, 1.25), "claw") for x in (-3.15, -2.5, -1.85)],
-            # Espinhos nas costas e no rabo, como os do Corrodent: fileiras juntas de placas finas inclinadas para trás,
-            # um pouco tortas para os lados (alternando), do pescoço até a ponta do rabo.
-            "torso": [((-3, 7.6, z), (6, 4, 0), "spike", (0, 7.6, z), (-50, 0, 12 * (-1) ** i))
-                      for i, z in enumerate((-6.5, -5, -3.5, -2, -0.5))],
-            "body": [((-3, 7.6, z), (6, 4, 0), "spike", (0, 7.6, z), (-50, 0, 12 * (-1) ** i))
-                     for i, z in enumerate((1, 2.5, 4, 5.5, 7))],
-            "tail": [((-2, 7.6, z), (4, 3, 0), "spike", (0, 7.6, z), (-55, 0, 10 * (-1) ** i))
-                     for i, z in enumerate((9.5, 11, 12.5))],
-            "tail2": [((-2, 7.6, z), (4, 3, 0), "spike", (0, 7.6, z), (-55, 0, 10 * (-1) ** i))
-                      for i, z in enumerate((14.5, 16, 17.5))],
-            "tail3": [((-1.5, 7.6, z), (3, 2, 0), "spike", (0, 7.6, z), (-60, 0, 10 * (-1) ** i))
-                      for i, z in enumerate((19.5, 21, 22.5))],
+            # Garras dos pés de trás: saem as unhas planas e entram três garras na frente de cada pé.
+            "foot_back_left": [((x, 0, 2.75), (0.5, 0.5, 1), "claw") for x in (1.35, 2.0, 2.65)],
+            "foot_back_right": [((x, 0, 2.75), (0.5, 0.5, 1), "claw") for x in (-3.15, -2.5, -1.85)],
+            # A crista de espinhos do Corrodent, do pescoço à ponta do rabo (a base meio afundada no corpo).
+            "torso": [((-1, 7.25, -7), (2, 5, 8), "copy:ridge_chest")],
+            "body": [((-1, 7.25, 1), (2, 5, 8), "copy:ridge_hips")],
+            "tail": [((-1, 7.25, 9), (2, 4, 5), "copy:ridge_hips")],
+            "tail2": [((-1, 7.25, 14), (2, 3, 5), "copy:ridge_chest")],
+            "tail3": [((-0.5, 7.5, 19), (1, 2, 5), "copy:ridge_chest")],
         },
+        # Cubos de Galar que ganham o pelo do Corrodent (pelo tamanho do cubo).
+        "transplant": {"torso": {(5, 5, 8): "chest"}, "body": {(7, 5, 8): "hips"}, "tail": {(8, 2, 5): "tail"},
+                       "tail2": {(8, 1, 5): "tail"}, "tail3": {(7, 0, 5): "tail"}},
         "tongue_y": 4.77,
-        "drop_cubes": {"head": [(1, 2, 0)], "foot_back_left": [(0, 1, 1)], "foot_back_right": [(0, 1, 1)]},
+        # Saem: a placa de Galar em cima do lombo (a crista entra no lugar), a placa da cara e as unhas planas.
+        "drop_cubes": {"torso": [(2, 0, 8)], "head": [(1, 2, 0)], "foot_back_left": [(0, 1, 1)],
+                       "foot_back_right": [(0, 1, 1)]},
     },
 }
 
@@ -107,9 +116,9 @@ class Allocator:
         self.used = [[owner[y][x] is not None or self.px[x, y][3] > 0 for x in range(self.w)] for y in range(self.h)]
         self.cache = {}
 
-    def box(self, size):
+    def box(self, size, kind=""):
         w, h, d = size
-        key = tuple(size)
+        key = (tuple(size), kind)
         if key in self.cache:   # peças iguais dividem a mesma área (os dois dentes, as garras, os espinhos)
             return self.cache[key]
         bw, bh = math.ceil(2 * d + 2 * w), math.ceil(d + h)
@@ -124,6 +133,19 @@ class Allocator:
         raise ValueError("sem espaço livre na textura")
 
 
+HIPS_BONES = ("butt", "body", "leg_back", "body_ruff3", "bodyruff5", "bodyruff6", "bodyruff9")
+NOT_FUR = ("eye_left", "eye_right", "eyelid", "tongue", "jaw", "muzzle", "teeth", "foot", "zigzagoon", "linoone")
+
+
+def fur_source(bone):
+    """De que parte do Corrodent vem o pelo do osso (None: não é pelo)."""
+    if bone.startswith(NOT_FUR):
+        return None
+    if bone.startswith("tail"):
+        return "tail"
+    return "hips" if bone.startswith(HIPS_BONES) else "chest"
+
+
 def edit_model(geo_json, species, alloc):
     model = copy.deepcopy(geo_json)
     geo = model["minecraft:geometry"][0]
@@ -132,7 +154,7 @@ def edit_model(geo_json, species, alloc):
     kinds = {}
 
     def cube(origin, size, kind, pivot=None, rotation=None):
-        c = {"origin": list(origin), "size": list(size), "uv": list(alloc.box(size))}
+        c = {"origin": list(origin), "size": list(size), "uv": list(alloc.box(size, kind))}
         if pivot:
             c["pivot"], c["rotation"] = list(pivot), list(rotation)
         # O dente guarda onde começa (em cima), para clarear da gengiva até a ponta.
@@ -149,6 +171,14 @@ def edit_model(geo_json, species, alloc):
             bone["cubes"] = [cube(*p) for p in spec["replace"][name]]
         if name in spec.get("add", {}):
             bone.setdefault("cubes", []).extend(cube(*p) for p in spec["add"][name])
+        for c in bone.get("cubes", []):
+            part = spec.get("transplant", {}).get(name, {}).get(tuple(c["size"]))
+            if part and id(c) not in kinds:
+                kinds[id(c)] = "copy:" + part
+        source = fur_source(name)
+        for c in bone.get("cubes", []):
+            if source and id(c) not in kinds:
+                kinds[id(c)] = "fur:" + source
         if name.startswith(TONGUE_BONES):
             for c in bone.get("cubes", []):
                 c["origin"][1] = spec["tongue_y"]   # um tiquinho acima da mandíbula, sem piscar com ela
@@ -173,6 +203,8 @@ def paint(texture, geo, kinds, palettes, fur):
     groups = {}
     for (px, py), (bone, pos, key) in positions.items():
         kind = kinds.get(key[1])
+        if kind and kind.startswith("fur:"):
+            kind = None   # pinta como pelo por baixo; o pelo do Corrodent vem por cima (copy_parts)
         if kind is None:
             if bone.startswith(EYE_BONES):
                 h, s, v = colorsys.rgb_to_hsv(*(c / 255 for c in sp[px, py][:3]))
@@ -192,6 +224,9 @@ def paint(texture, geo, kinds, palettes, fur):
             ranges[kind] = (min(lo, l), max(hi, l))
     shade = {0: 0.12, 1: -0.18, 2: -0.04, 3: 0.0, 4: -0.04, 5: -0.08}
     for (px, py), (kind, bone, (x, y, z), key) in groups.items():
+        new_cube = not kinds.get(key[1], "fur:").startswith("fur:")   # cubo novo (pintado inteiro)
+        if sp[px, py][3] == 0 and not new_cube:
+            continue   # o vazio do original fica vazio (as pontas dos tufos de pelo de Galar)
         face = key[2]
         lo, hi = ranges.get(kind, (0, 1))
         t = (luma(sp[px, py]) - lo) / (hi - lo) if sp[px, py][3] and hi > lo else 0.5
@@ -205,7 +240,9 @@ def paint(texture, geo, kinds, palettes, fur):
         elif kind == "tongue":
             c = pick(palettes["skin"], 0.1 + 0.4 * t)
         elif kind in ("skin", "paw"):
-            c = pick(palettes["skin"], 0.25 + 0.45 * t + 0.15 * n + shade[face])
+            # Pele lisa, como os pés do Corrodent: um tom por face, só com a sombra do lado (os poucos tons de luz do
+            # original, ampliados, viravam blocos).
+            c = pick(palettes["skin"], 0.62 + shade[face])
         elif kind == "jaw":
             # Em cima é o céu da boca (escuro); fora, a pele do queixo.
             c = pick(palettes["skin"], 0.05 + 0.1 * n) if face == 0 else pick(palettes["skin"], 0.3 + 0.2 * n + shade[face])
@@ -215,50 +252,73 @@ def paint(texture, geo, kinds, palettes, fur):
             top = float(kind.split("@")[1])
             c = pick(palettes["teeth"], 0.75 - 0.65 * max(0.0, min(1.0, (top - y) / 3)) + 0.1 * n)
         elif kind == "claw":
-            c = pick(CLAW, 0.3 + 0.5 * (1 - (z - math.floor(z))) + 0.15 * n)
+            c = pick(CLAW, 0.35 + 0.6 * (1 - (z - math.floor(z))))   # mais clara na ponta
         else:
             continue
-        op[px, py] = c + (255,)
+        op[px, py] = c + (255 if new_cube else sp[px, py][3],)
     return out
 
 
-def copy_snout(img, geo, kinds, corrodent):
-    """O focinho: cada face do cubo novo recebe a face correspondente do focinho do Corrodent, esticada."""
-    (cu, cv), csize = CORRODENT_SNOUT
-    theirs = box_faces((cu, cv), csize)
-    p, cp = img.load(), corrodent.load()
+def fit_face(src, w, h, crisp):
+    """Uma face do Corrodent no tamanho da nossa: ampliada pixel a pixel; diminuída pela média de cada bloco, presa
+    à paleta da própria face (crisp: diminuída pixel a pixel, para as pontas recortadas não borrarem)."""
+    if w >= src.width and h >= src.height or crisp:
+        return src.resize((w, h), Image.NEAREST)
+    small = src.resize((w, h), Image.BOX)
+    palette = list({q[:3] for q in src.getdata() if q[3]})
+    out = small.copy()
+    po, ps = out.load(), small.load()
+    alpha = src.resize((w, h), Image.NEAREST).load()
+    for y in range(h):
+        for x in range(w):
+            q = ps[x, y]
+            if not alpha[x, y][3] or not palette:
+                po[x, y] = (0, 0, 0, 0)
+                continue
+            po[x, y] = min(palette, key=lambda c: sum((a - b) ** 2 for a, b in zip(c, q[:3]))) + (255,)
+    return out
+
+
+# A textura sai com o dobro da resolução (cada unidade do modelo vira 2 x 2 pixels; o modelo continua declarando 64,
+# e o Cobblemon mede o UV por ele). O Corrodent tem 1 pixel por unidade: as peças dele entram ampliadas, sem média.
+SCALE = 2
+
+
+def all_faces(uv, size):
+    """As 6 faces de um cubo (cima, baixo, leste, frente, oeste, costas), inclusive as de tamanho zero (planos)."""
+    u, v = uv
+    w, h, d = size
+    return [(u + d, v, w, d), (u + d + w, v, w, d), (u, v + d, d, h), (u + d, v + d, w, h),
+            (u + d + w, v + d, d, h), (u + 2 * d + w, v + d, w, h)]
+
+
+def copy_parts(img, geo, kinds, corrodent):
+    """Os cubos "copy:<peça>" e "fur:<peça>": cada face recebe a face equivalente da caixa do Corrodent (CORRODENT).
+    "fur" é um cubo de Galar que ganha o pelo dele: fica o recorte do original (o vazio continua vazio)."""
     for bone in geo["bones"]:
         for c in bone.get("cubes", []):
-            if kinds.get(id(c)) != "snout":
+            kind = kinds.get(id(c), "")
+            if not kind.startswith(("copy:", "fur:")):
                 continue
-            ours = box_faces(c["uv"], [math.ceil(v) for v in c["size"]])
+            part = kind.split(":")[1]
+            masked = kind.startswith("fur:")
+            (cu, cv), csize = CORRODENT[part]
+            theirs = all_faces((cu, cv), csize)
+            ours = all_faces(c["uv"], [math.ceil(v) for v in c["size"]])
             for (x0, y0, w, h), (tx, ty, tw, th) in zip(ours, theirs):
-                for j in range(h):
-                    for i in range(w):
-                        q = cp[tx + int(i * tw / w), ty + int(j * th / h)]
-                        if q[3]:
-                            p[x0 + i, y0 + j] = q
-
-
-def paint_spikes(img, geo, kinds, corrodent):
-    """Os espinhos: recortes da fileira de pontas do Corrodent (cada tamanho pega um trecho), dos dois lados da placa;
-    em volta das pontas fica vazio."""
-    sx, sy, sw, sh = CORRODENT_SPIKES
-    p, cp = img.load(), corrodent.load()
-    done = set()
-    for bone in geo["bones"]:
-        for c in bone.get("cubes", []):
-            if kinds.get(id(c)) != "spike" or tuple(c["uv"]) in done:
-                continue
-            done.add(tuple(c["uv"]))
-            (u, v), (w, h, _d) = c["uv"], c["size"]
-            w, h = int(w), int(h)
-            start = sx + (len(done) * 7) % (sw - w)
-            for side in range(2):
-                for i in range(w):
-                    col = start + (i if side == 0 else w - 1 - i)
+                if w <= 0 or h <= 0 or tw <= 0 or th <= 0:
+                    continue
+                x0, y0, w, h = SCALE * x0, SCALE * y0, SCALE * w, SCALE * h
+                face = fit_face(corrodent.crop((tx, ty, tx + tw, ty + th)), w, h, part.startswith("ridge"))
+                if masked:
+                    fp, ip = face.load(), img.load()
                     for j in range(h):
-                        p[u + side * w + i, v + j] = cp[col, sy + sh - h + j]
+                        for i in range(w):
+                            if 0 <= x0 + i < img.width and 0 <= y0 + j < img.height and ip[x0 + i, y0 + j][3] \
+                                    and fp[i, j][3]:
+                                ip[x0 + i, y0 + j] = fp[i, j]
+                else:
+                    img.paste(face, (x0, y0))
 
 
 def clean(model):
@@ -294,8 +354,8 @@ def main():
         model, kinds = edit_model(geo_json, species, Allocator(texture, owner))
         new_geo = model["minecraft:geometry"][0]
         painted = paint(texture, new_geo, kinds, palettes, corrodent.crop(FUR_TILE))
-        copy_snout(painted, new_geo, kinds, corrodent)
-        paint_spikes(painted, new_geo, kinds, corrodent)
+        painted = painted.resize((painted.width * SCALE, painted.height * SCALE), Image.NEAREST)
+        copy_parts(painted, new_geo, kinds, corrodent)
         clean(model)
         out = resources / f"assets/ecosystems_hollows/textures/pokemon/{species}"
         out.mkdir(parents=True, exist_ok=True)
@@ -310,7 +370,7 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(resolver, indent=2) + "\n", encoding="utf-8", newline="\n")
         if preview:
-            save_preview(preview, f"{species}_forlorn", texture, [painted])
+            save_preview(preview, f"{species}_forlorn", texture.resize(painted.size, Image.NEAREST), [painted])
 
 
 if __name__ == "__main__":
